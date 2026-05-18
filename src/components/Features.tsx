@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Package, BookOpen, Wallet, Factory, FileCheck, Code, Headphones, BarChart3, ArrowRight, Sparkles, type LucideIcon } from 'lucide-react';
+import { Package, BookOpen, Wallet, Factory, FileCheck, Code, Headphones, BarChart3, ArrowRight, Sparkles, ExternalLink, type LucideIcon } from 'lucide-react';
 import { useSite } from '../context/SiteContext';
 
 const iconMap: Record<string, LucideIcon> = {
@@ -20,16 +20,17 @@ export default function Features() {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 30, rotateX: 20 },
     visible: {
       opacity: 1,
       y: 0,
+      rotateX: 0,
       transition: { duration: 0.6, ease: "easeOut" }
     }
   };
 
   return (
-    <section id="services" className="relative py-32 bg-gradient-to-b from-navy-50 via-white to-navy-50/50 dark:from-navy-900/50 dark:via-navy-950 dark:to-navy-900/50 overflow-hidden">
+    <section id="services" className="relative py-32 bg-gradient-to-b from-navy-50 via-white to-navy-50/50 dark:from-navy-900/50 dark:via-navy-950 dark:to-navy-900/50 overflow-hidden perspective">
       {/* Animated background elements */}
       <div className="absolute -top-40 -right-40 w-80 h-80 bg-accent/10 rounded-full blur-3xl opacity-30" />
       <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl opacity-20" />
@@ -54,6 +55,7 @@ export default function Features() {
           whileInView="visible"
           viewport={{ once: true }}
           className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          style={{ perspective: '1000px' }}
         >
           {data.services.map((svc) => {
             const Ic = iconMap[svc.icon] || Package;
@@ -61,8 +63,10 @@ export default function Features() {
               <motion.div
                 key={svc.id}
                 variants={itemVariants}
-                whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                className="group relative rounded-2xl border border-navy-100 dark:border-navy-700 bg-white dark:bg-navy-800/50 p-6 shadow-md hover:shadow-xl hover:shadow-accent/20 transition-all duration-300 cursor-pointer overflow-hidden"
+                whileHover={{ y: -12, rotateX: -5, transition: { duration: 0.3 } }}
+                className="group relative rounded-2xl border border-navy-100 dark:border-navy-700 bg-white dark:bg-navy-800/50 p-6 shadow-md hover:shadow-2xl hover:shadow-accent/30 transition-all duration-300 cursor-pointer overflow-hidden"
+                onClick={() => svc.link && window.open(svc.link, '_blank')}
+                style={{ transformStyle: 'preserve-3d' }}
               >
                 {/* Gradient border on hover */}
                 <motion.div
@@ -73,10 +77,18 @@ export default function Features() {
                   style={{ originX: 0 }}
                 />
 
+                {/* Background shine effect on hover */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100"
+                  initial={{ x: '-100%' }}
+                  whileHover={{ x: '100%' }}
+                  transition={{ duration: 0.6 }}
+                />
+
                 {/* Icon background animation */}
                 <motion.div
                   className="h-12 w-12 rounded-xl bg-gradient-to-br from-accent/20 to-blue-500/10 flex items-center justify-center mb-4 relative overflow-hidden"
-                  whileHover={{ scale: 1.1 }}
+                  whileHover={{ scale: 1.15, rotate: 10 }}
                 >
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-accent/30 to-transparent"
@@ -115,16 +127,15 @@ export default function Features() {
                 </ul>
 
                 {/* CTA */}
-                <motion.a
-                  href="#contact"
+                <motion.div
                   whileHover={{ x: 4 }}
-                  className="mt-5 inline-flex items-center gap-1 text-xs font-semibold text-accent hover:text-accent-dark transition"
+                  className="mt-5 inline-flex items-center gap-1 text-xs font-semibold text-accent hover:text-accent-dark transition group/link"
                 >
-                  Learn more
-                  <motion.div whileHover={{ x: 2 }}>
-                    <ArrowRight className="h-3 w-3" />
+                  View on Tally
+                  <motion.div whileHover={{ x: 2 }} className="group-hover/link:text-accent-dark">
+                    <ExternalLink className="h-3 w-3" />
                   </motion.div>
-                </motion.a>
+                </motion.div>
               </motion.div>
             );
           })}
