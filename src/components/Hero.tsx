@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle, Download, MessageCircle, Play, BarChart3, Sparkles } from 'lucide-react';
+import { ArrowRight, CheckCircle, Download, MessageCircle, Play, BarChart3, Sparkles, Zap } from 'lucide-react';
 import { useSite } from '../context/SiteContext';
 
 export default function Hero() {
@@ -13,6 +13,20 @@ export default function Hero() {
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+  };
+
+  // 3D Tagline animation
+  const taglineVariants = {
+    hidden: { opacity: 0, rotateX: 90 },
+    visible: {
+      opacity: 1,
+      rotateX: 0,
+      transition: { duration: 1, ease: "easeOut" }
+    },
+    animate: {
+      y: [-4, 4, -4],
+      transition: { duration: 3, repeat: Infinity, ease: "easeInOut" }
+    }
   };
   
   return (
@@ -38,10 +52,22 @@ export default function Hero() {
           {/* Left Content */}
           <motion.div initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }}>
             <div className="flex items-center gap-3 mb-6">
-              <span className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-sm text-accent font-medium">
+              <motion.span 
+                animate={{ scale: [1, 1.1, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="inline-flex items-center gap-2"
+              >
                 <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
+              </motion.span>
+              <motion.span 
+                className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-sm text-accent font-medium"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.2, duration: 0.6 }}
+                whileHover={{ scale: 1.05, backgroundColor: "rgba(37, 99, 235, 0.2)" }}
+              >
                 #1 TallyPrime Partner in Kenya
-              </span>
+              </motion.span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-extrabold text-white leading-[1.08] tracking-tight">
@@ -54,24 +80,75 @@ export default function Hero() {
               {' '}Solutions
             </h1>
 
+            {/* 3D Tagline */}
+            <motion.div
+              initial={{ opacity: 0, rotateX: 90, y: 20 }}
+              animate={{ opacity: 1, rotateX: 0, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
+              style={{ perspective: "1200px" }}
+              className="mt-4"
+            >
+              <motion.div
+                animate={{ y: [-3, 3, -3] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="inline-flex items-center gap-2.5 rounded-lg bg-gradient-to-r from-accent/20 via-accent/10 to-blue-500/20 px-5 py-3 border border-accent/30 backdrop-blur-sm"
+              >
+                <Zap className="h-5 w-5 text-accent animate-pulse" />
+                <span className="text-lg font-semibold bg-gradient-to-r from-accent to-blue-300 bg-clip-text text-transparent">
+                  {data.company?.tagline || 'Smart Business Solutions For Smart Entrepreneurs'}
+                </span>
+              </motion.div>
+            </motion.div>
+
             <p className="mt-6 text-lg text-navy-300 leading-relaxed max-w-lg">
               Run your business like a pro. From accounting & inventory to KRA compliance & eTIMS — we implement, customize, and support TallyPrime for Kenyan businesses of all sizes.
             </p>
 
             {/* CTA Buttons */}
             <div className="mt-8 flex flex-wrap gap-3">
-              <a href="#contact" className="group inline-flex items-center gap-2 rounded-xl bg-accent px-7 py-4 text-sm font-bold text-white shadow-xl shadow-accent/25 hover:bg-accent-dark hover:scale-[1.02] transition-all">
+              <motion.a 
+                href="#contact" 
+                className="group inline-flex items-center gap-2 rounded-xl bg-accent px-7 py-4 text-sm font-bold text-white shadow-xl shadow-accent/25 hover:bg-accent-dark hover:scale-[1.02] transition-all"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.6 }}
+              >
                 Request Demo
-                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </a>
-              <a href={`https://wa.me/${data.contact.whatsapp}?text=Hi%20Optimum%20Prime%20Solutions,%20I'm%20interested%20in%20TallyPrime`} target="_blank" rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-4 text-sm font-bold text-white backdrop-blur-sm hover:bg-white/10 transition-all">
-                <MessageCircle className="h-4 w-4 text-blue-200" /> Chat on WhatsApp
-              </a>
-              <a href="https://tallysolutions.com/ssa/download/" target="_blank" rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-4 text-sm font-bold text-white backdrop-blur-sm hover:bg-white/10 transition-all">
+                <motion.div animate={{ x: [0, 4, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </motion.div>
+              </motion.a>
+              <motion.a 
+                href={`https://wa.me/${data.contact.whatsapp}?text=Hi%20Optimum%20Prime%20Solutions,%20I'm%20interested%20in%20TallyPrime`} 
+                target="_blank" 
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-4 text-sm font-bold text-white backdrop-blur-sm hover:bg-white/10 transition-all"
+                whileHover={{ scale: 1.05, borderColor: "rgba(37, 99, 235, 0.5)" }}
+                whileTap={{ scale: 0.98 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6, duration: 0.6 }}
+              >
+                <motion.div animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 2, repeat: Infinity }}>
+                  <MessageCircle className="h-4 w-4 text-blue-200" />
+                </motion.div>
+                Chat on WhatsApp
+              </motion.a>
+              <motion.a 
+                href="https://tallysolutions.com/ssa/download/" 
+                target="_blank" 
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-4 text-sm font-bold text-white backdrop-blur-sm hover:bg-white/10 transition-all"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7, duration: 0.6 }}
+              >
                 <Download className="h-4 w-4 text-accent" /> Download Tally
-              </a>
+              </motion.a>
             </div>
 
             {/* Trust Signals */}
