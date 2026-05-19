@@ -24,7 +24,7 @@ export default function Testimonials() {
   };
 
   const avatarColors = [
-    'from-blue-500 to-accent',
+    'from-blue-500 to-yellow-600',
     'from-purple-500 to-blue-500',
     'from-green-500 to-blue-500',
     'from-red-500 to-purple-500',
@@ -36,7 +36,7 @@ export default function Testimonials() {
     <section id="testimonials" className="relative py-32 bg-gradient-to-b from-white to-navy-50/50 dark:from-navy-950 dark:to-navy-900/50 overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-10 w-80 h-80 bg-accent/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-10 w-80 h-80 bg-yellow-400/5 rounded-full blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -45,11 +45,11 @@ export default function Testimonials() {
           viewport={{ once: true }}
           className="text-center max-w-3xl mx-auto mb-20"
         >
-          <span className="inline-block rounded-full bg-accent/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-accent">
+          <span className="inline-block rounded-full bg-yellow-400/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-yellow-600">
             Testimonials
           </span>
-          <h2 className="mt-6 text-4xl sm:text-5xl font-extrabold text-navy-900 dark:text-white leading-tight">
-            Trusted by <span className="bg-gradient-to-r from-accent to-blue-600 bg-clip-text text-transparent">Kenyan Businesses</span>
+          <h2 className="mt-6 text-4xl sm:text-5xl font-extrabold text-navy-900 dark:text-navy-900 leading-tight">
+            Trusted by <span className="bg-gradient-to-r from-yellow-400 to-blue-600 bg-clip-text text-transparent">Kenyan Businesses</span>
           </h2>
           <p className="mt-6 text-lg text-navy-600 dark:text-navy-300">
             Join 500+ companies transforming their operations with our Tally Prime solutions.
@@ -68,11 +68,11 @@ export default function Testimonials() {
               key={t.id}
               variants={itemVariants}
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
-              className="group relative rounded-2xl border border-navy-100 dark:border-navy-700 bg-white dark:bg-navy-800/50 p-8 shadow-md hover:shadow-xl hover:shadow-accent/20 transition-all duration-300 overflow-hidden"
+              className="group relative rounded-2xl border border-navy-100 dark:border-navy-700 bg-white dark:bg-navy-800/50 p-8 shadow-md hover:shadow-xl hover:shadow-yellow-400/20 transition-all duration-300 overflow-hidden"
             >
               {/* Background gradient on hover */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+                className="absolute inset-0 bg-gradient-to-br from-yellow-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
                 initial={false}
               />
 
@@ -82,7 +82,7 @@ export default function Testimonials() {
                 transition={{ duration: 4, repeat: Infinity, delay: i * 0.2 }}
                 className="relative z-10"
               >
-                <Quote className="h-8 w-8 text-accent/30 mb-4" />
+                <Quote className="h-8 w-8 text-yellow-600/30 mb-4" />
               </motion.div>
 
               {/* Stars */}
@@ -100,7 +100,7 @@ export default function Testimonials() {
               </div>
 
               {/* Testimonial text */}
-              <p className="text-sm text-navy-600 dark:text-navy-300 leading-relaxed relative z-10 mb-6">
+              <p className="text-sm text-navy-600 dark:text-navy-700 leading-relaxed relative z-10 mb-6">
                 "{t.text}"
               </p>
 
@@ -122,7 +122,7 @@ export default function Testimonials() {
                 </motion.div>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-semibold text-navy-900 dark:text-white truncate">{t.name}</p>
-                  <p className="text-xs text-navy-500 dark:text-navy-400 truncate">
+                  <p className="text-xs text-navy-500 dark:text-navy-600 truncate">
                     {t.role}, {t.company}
                   </p>
                 </div>

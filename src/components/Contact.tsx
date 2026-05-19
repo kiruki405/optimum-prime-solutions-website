@@ -54,13 +54,13 @@ export default function Contact() {
   return (
     <section id="contact" className="relative py-32 bg-gradient-to-b from-navy-50 to-white dark:from-navy-900/50 dark:to-navy-950 overflow-hidden">
       <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl" />
-      <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
+      <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-yellow-400/10 rounded-full blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center max-w-3xl mx-auto mb-20">
-          <span className="inline-block rounded-full bg-accent/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-accent">Contact</span>
-          <h2 className="mt-6 text-4xl sm:text-5xl font-extrabold text-navy-900 dark:text-white leading-tight">
-            Request a <span className="bg-gradient-to-r from-accent to-blue-600 bg-clip-text text-transparent">Demo</span>
+          <span className="inline-block rounded-full bg-yellow-400/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-yellow-600">Contact</span>
+          <h2 className="mt-6 text-4xl sm:text-5xl font-extrabold text-navy-900 dark:text-navy-900 leading-tight">
+            Request a <span className="bg-gradient-to-r from-yellow-400 to-blue-600 bg-clip-text text-transparent">Demo</span>
           </h2>
         </motion.div>
 
@@ -68,13 +68,13 @@ export default function Contact() {
           <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="lg:col-span-2 space-y-6">
             {info.map(({ icon: Ic, title, lines }) => (
               <div key={title} className="flex items-start gap-4 p-4 rounded-xl hover:bg-white dark:hover:bg-navy-800/50 transition-all">
-                <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-accent/20 to-blue-500/10 flex items-center justify-center shrink-0">
-                  <Ic className="h-5 w-5 text-accent" />
+                <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-yellow-400/20 to-blue-500/10 flex items-center justify-center shrink-0">
+                  <Ic className="h-5 w-5 text-yellow-600" />
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-navy-900 dark:text-white">{title}</h4>
                   {lines.map((l) => (
-                    <p key={l} className="text-sm text-navy-600 dark:text-navy-400 mt-1">
+                    <p key={l} className="text-sm text-navy-600 dark:text-navy-600 mt-1">
                       {l}
                     </p>
                   ))}
@@ -95,7 +95,7 @@ export default function Contact() {
           <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="lg:col-span-3">
             <div className="rounded-2xl border border-navy-200 dark:border-navy-700 bg-white dark:bg-navy-800 p-8 shadow-xl">
               <div className="flex items-center gap-3 mb-6">
-                <Smartphone className="h-6 w-6 text-accent" />
+                <Smartphone className="h-6 w-6 text-yellow-600" />
                 <h3 className="text-2xl font-bold text-navy-900 dark:text-white">Demo Request</h3>
               </div>
 
@@ -125,7 +125,7 @@ export default function Contact() {
                           onChange={(e) => set(f.k, e.target.value)}
                           placeholder={f.p}
                           required={f.l.includes('*')}
-                          className="w-full rounded-lg border border-navy-200 dark:border-navy-600 bg-navy-50 dark:bg-navy-700 px-4 py-2.5 text-sm outline-none focus:border-accent focus:ring-2 focus:ring-accent/30 text-navy-900 dark:text-white"
+                          className="w-full rounded-lg border border-navy-200 dark:border-navy-600 bg-navy-50 dark:bg-navy-700 px-4 py-2.5 text-sm outline-none focus:border-yellow-300 focus:ring-2 focus:ring-accent/30 text-navy-900 dark:text-white"
                         />
                       </div>
                     ))}
@@ -138,11 +138,11 @@ export default function Contact() {
                       onChange={(e) => set('message', e.target.value)}
                       rows={3}
                       placeholder="Tell us about your needs..."
-                      className="w-full rounded-lg border border-navy-200 dark:border-navy-600 bg-navy-50 dark:bg-navy-700 px-4 py-2.5 text-sm outline-none focus:border-accent focus:ring-2 focus:ring-accent/30 text-navy-900 dark:text-white resize-none"
+                      className="w-full rounded-lg border border-navy-200 dark:border-navy-600 bg-navy-50 dark:bg-navy-700 px-4 py-2.5 text-sm outline-none focus:border-yellow-300 focus:ring-2 focus:ring-accent/30 text-navy-900 dark:text-white resize-none"
                     />
                   </div>
 
-                  <button type="submit" className="w-full rounded-lg bg-gradient-to-r from-accent to-blue-600 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-accent/30 hover:shadow-xl transition flex items-center justify-center gap-2">
+                  <button type="submit" className="w-full rounded-lg bg-gradient-to-r from-yellow-400 to-blue-600 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-yellow-400/30 hover:shadow-xl transition flex items-center justify-center gap-2">
                     <Send className="h-4 w-4" />
                     Submit Request
                   </button>

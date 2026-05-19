@@ -80,7 +80,7 @@ export default function DemoRequestModal({ isOpen, onClose, companyPhone, compan
                 onClick={onClose}
                 className="p-1 rounded-lg hover:bg-navy-100 dark:hover:bg-navy-700 transition"
               >
-                <X className="h-5 w-5 text-navy-600 dark:text-navy-400" />
+                <X className="h-5 w-5 text-navy-600 dark:text-navy-600" />
               </button>
             </div>
 
@@ -122,7 +122,7 @@ export default function DemoRequestModal({ isOpen, onClose, companyPhone, compan
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="John Doe"
-                      className="w-full rounded-lg border border-navy-200 dark:border-navy-600 bg-navy-50 dark:bg-navy-700 px-4 py-2.5 text-navy-900 dark:text-white placeholder-navy-400 dark:placeholder-navy-500 outline-none focus:border-accent focus:ring-2 focus:ring-accent/30"
+                      className="w-full rounded-lg border border-navy-200 dark:border-navy-600 bg-navy-50 dark:bg-navy-700 px-4 py-2.5 text-navy-900 dark:text-white placeholder-navy-400 dark:placeholder-navy-500 outline-none focus:border-yellow-300 focus:ring-2 focus:ring-accent/30"
                       required
                     />
                     <ValidationError field="name" errors={state.errors} />
@@ -138,7 +138,7 @@ export default function DemoRequestModal({ isOpen, onClose, companyPhone, compan
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="john@company.ke"
-                      className="w-full rounded-lg border border-navy-200 dark:border-navy-600 bg-navy-50 dark:bg-navy-700 px-4 py-2.5 text-navy-900 dark:text-white placeholder-navy-400 dark:placeholder-navy-500 outline-none focus:border-accent focus:ring-2 focus:ring-accent/30"
+                      className="w-full rounded-lg border border-navy-200 dark:border-navy-600 bg-navy-50 dark:bg-navy-700 px-4 py-2.5 text-navy-900 dark:text-white placeholder-navy-400 dark:placeholder-navy-500 outline-none focus:border-yellow-300 focus:ring-2 focus:ring-accent/30"
                       required
                     />
                     <ValidationError field="email" errors={state.errors} />
@@ -154,7 +154,7 @@ export default function DemoRequestModal({ isOpen, onClose, companyPhone, compan
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="+254 700 000 000"
-                      className="w-full rounded-lg border border-navy-200 dark:border-navy-600 bg-navy-50 dark:bg-navy-700 px-4 py-2.5 text-navy-900 dark:text-white placeholder-navy-400 dark:placeholder-navy-500 outline-none focus:border-accent focus:ring-2 focus:ring-accent/30"
+                      className="w-full rounded-lg border border-navy-200 dark:border-navy-600 bg-navy-50 dark:bg-navy-700 px-4 py-2.5 text-navy-900 dark:text-white placeholder-navy-400 dark:placeholder-navy-500 outline-none focus:border-yellow-300 focus:ring-2 focus:ring-accent/30"
                       required
                     />
                     <ValidationError field="phone" errors={state.errors} />
@@ -170,7 +170,7 @@ export default function DemoRequestModal({ isOpen, onClose, companyPhone, compan
                       value={formData.company}
                       onChange={handleChange}
                       placeholder="Your Company Ltd"
-                      className="w-full rounded-lg border border-navy-200 dark:border-navy-600 bg-navy-50 dark:bg-navy-700 px-4 py-2.5 text-navy-900 dark:text-white placeholder-navy-400 dark:placeholder-navy-500 outline-none focus:border-accent focus:ring-2 focus:ring-accent/30"
+                      className="w-full rounded-lg border border-navy-200 dark:border-navy-600 bg-navy-50 dark:bg-navy-700 px-4 py-2.5 text-navy-900 dark:text-white placeholder-navy-400 dark:placeholder-navy-500 outline-none focus:border-yellow-300 focus:ring-2 focus:ring-accent/30"
                     />
                   </div>
                 </div>
@@ -184,7 +184,7 @@ export default function DemoRequestModal({ isOpen, onClose, companyPhone, compan
                     name="demoDate"
                     value={formData.demoDate}
                     onChange={handleChange}
-                    className="w-full rounded-lg border border-navy-200 dark:border-navy-600 bg-navy-50 dark:bg-navy-700 px-4 py-2.5 text-navy-900 dark:text-white outline-none focus:border-accent focus:ring-2 focus:ring-accent/30"
+                    className="w-full rounded-lg border border-navy-200 dark:border-navy-600 bg-navy-50 dark:bg-navy-700 px-4 py-2.5 text-navy-900 dark:text-white outline-none focus:border-yellow-300 focus:ring-2 focus:ring-accent/30"
                   />
                 </div>
 
@@ -198,7 +198,7 @@ export default function DemoRequestModal({ isOpen, onClose, companyPhone, compan
                     onChange={handleChange}
                     placeholder="Tell us about your needs..."
                     rows={3}
-                    className="w-full rounded-lg border border-navy-200 dark:border-navy-600 bg-navy-50 dark:bg-navy-700 px-4 py-2.5 text-navy-900 dark:text-white placeholder-navy-400 dark:placeholder-navy-500 outline-none focus:border-accent focus:ring-2 focus:ring-accent/30 resize-none"
+                    className="w-full rounded-lg border border-navy-200 dark:border-navy-600 bg-navy-50 dark:bg-navy-700 px-4 py-2.5 text-navy-900 dark:text-white placeholder-navy-400 dark:placeholder-navy-500 outline-none focus:border-yellow-300 focus:ring-2 focus:ring-accent/30 resize-none"
                   />
                 </div>
 
@@ -207,13 +207,13 @@ export default function DemoRequestModal({ isOpen, onClose, companyPhone, compan
                   disabled={state.submitting}
                   whileHover={{ scale: 0.98 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-full rounded-lg bg-gradient-to-r from-accent to-blue-600 px-6 py-3 font-semibold text-white shadow-lg shadow-accent/30 hover:shadow-xl hover:shadow-accent/40 transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="w-full rounded-lg bg-gradient-to-r from-yellow-400 to-blue-600 px-6 py-3 font-semibold text-white shadow-lg shadow-yellow-400/30 hover:shadow-xl hover:shadow-yellow-400/40 transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                   <Send className="h-4 w-4" />
                   {state.submitting ? 'Sending...' : 'Request Demo'}
                 </motion.button>
 
-                <p className="text-xs text-navy-500 dark:text-navy-400 text-center">
+                <p className="text-xs text-navy-500 dark:text-navy-600 text-center">
                   We'll send you a confirmation email and contact you via WhatsApp within 24 hours.
                 </p>
               </form>

@@ -73,7 +73,7 @@ export default function Navbar() {
               href="#contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 rounded-lg bg-accent px-4 py-2.5 text-[13px] font-semibold text-white shadow-lg shadow-accent/25 hover:bg-accent-dark transition-all"
+              className="flex items-center gap-2 rounded-lg bg-yellow-500 px-4 py-2.5 text-[13px] font-semibold text-white shadow-lg shadow-yellow-400/25 hover:bg-yellow-500-dark transition-all"
             >
               <Phone className="h-3.5 w-3.5" />
               Request Demo
@@ -112,7 +112,7 @@ export default function Navbar() {
               <a
                 href="#contact"
                 onClick={() => setOpen(false)}
-                className="block mt-2 text-center rounded-lg bg-accent px-4 py-3 text-sm font-semibold text-white"
+                className="block mt-2 text-center rounded-lg bg-yellow-500 px-4 py-3 text-sm font-semibold text-white"
               >
                 Request Demo
               </a>

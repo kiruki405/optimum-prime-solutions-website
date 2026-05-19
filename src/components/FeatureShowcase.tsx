@@ -25,11 +25,11 @@ export default function FeatureShowcase() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           className="text-center max-w-3xl mx-auto">
-          <span className="inline-block rounded-full bg-accent/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-accent">
+          <span className="inline-block rounded-full bg-yellow-400/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-yellow-600">
             TallyPrime Capabilities
           </span>
           <h2 className="mt-4 text-3xl sm:text-4xl font-bold text-navy-900 dark:text-white">
-            Make the Most Out of <span className="text-accent">TallyPrime</span>
+            Make the Most Out of <span className="text-yellow-600">TallyPrime</span>
           </h2>
           <p className="mt-4 text-navy-600 dark:text-navy-300">
             Everything you need to run your business like a pro — simple to learn, effortless to master.
@@ -51,7 +51,7 @@ export default function FeatureShowcase() {
                 onMouseLeave={() => setActive(null)}
                 className={`relative rounded-2xl border p-6 cursor-pointer transition-all duration-300 overflow-hidden ${
                   isActive
-                    ? 'border-accent/30 bg-white dark:bg-navy-800 shadow-xl shadow-accent/5 -translate-y-1'
+                    ? 'border-yellow-300/30 bg-white dark:bg-navy-800 shadow-xl shadow-yellow-400/5 -translate-y-1'
                     : 'border-navy-100 dark:border-navy-700 bg-white dark:bg-navy-800/50'
                 }`}
               >
@@ -61,13 +61,13 @@ export default function FeatureShowcase() {
                 <div className="flex items-start gap-4">
                   <div className={`h-12 w-12 rounded-2xl bg-gradient-to-br ${f.color} p-[1.5px] shrink-0 transition-transform duration-300 ${isActive ? 'scale-110' : ''}`}>
                     <div className="h-full w-full rounded-2xl bg-white dark:bg-navy-800 flex items-center justify-center">
-                      <Icon className={`h-5 w-5 transition-colors ${isActive ? 'text-accent' : 'text-navy-600 dark:text-navy-400'}`} />
+                      <Icon className={`h-5 w-5 transition-colors ${isActive ? 'text-yellow-600' : 'text-navy-600 dark:text-navy-600'}`} />
                     </div>
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="text-base font-bold text-navy-900 dark:text-white flex items-center gap-1">
                       {f.title}
-                      <ChevronRight className={`h-4 w-4 text-accent transition-all ${isActive ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-2'}`} />
+                      <ChevronRight className={`h-4 w-4 text-yellow-600 transition-all ${isActive ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-2'}`} />
                     </h3>
                     <AnimatePresence>
                       {isActive ? (
@@ -75,12 +75,12 @@ export default function FeatureShowcase() {
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: 'auto' }}
                           exit={{ opacity: 0, height: 0 }}
-                          className="mt-2 text-sm text-navy-600 dark:text-navy-300 leading-relaxed"
+                          className="mt-2 text-sm text-navy-600 dark:text-navy-700 leading-relaxed"
                         >
                           {f.desc}
                         </motion.p>
                       ) : (
-                        <p className="mt-1.5 text-sm text-navy-500 dark:text-navy-400 line-clamp-1">{f.desc}</p>
+                        <p className="mt-1.5 text-sm text-navy-500 dark:text-navy-600 line-clamp-1">{f.desc}</p>
                       )}
                     </AnimatePresence>
                   </div>

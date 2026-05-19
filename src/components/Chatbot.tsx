@@ -127,7 +127,7 @@ function FormatMessage({ text }: { text: string }) {
           const symbol = line.trim()[0];
           return (
             <div key={i} className="ml-1 flex gap-1.5">
-              <span className="text-accent">{symbol}</span>
+              <span className="text-yellow-600">{symbol}</span>
               <span>{formatted.slice(1)}</span>
             </div>
           );
@@ -209,15 +209,15 @@ export default function Chatbot() {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
             onClick={() => setOpen(true)}
-            className="fixed bottom-6 right-6 z-40 h-14 w-14 rounded-full bg-gradient-to-br from-accent via-blue-600 to-accent text-white shadow-2xl shadow-accent/40 hover:scale-110 transition-all flex items-center justify-center group"
+            className="fixed bottom-6 right-6 z-40 h-14 w-14 rounded-full bg-gradient-to-br from-yellow-400 via-blue-600 to-yellow-600 text-white shadow-2xl shadow-yellow-400/40 hover:scale-110 transition-all flex items-center justify-center group"
             aria-label="Chat"
           >
             <motion.div animate={{ rotate: [0, 10, -10, 0] }} transition={{ duration: 2, repeat: Infinity }}>
               <MessageCircle className="h-6 w-6" />
             </motion.div>
             <span className="absolute -top-1 -right-1 flex h-4 w-4">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
-              <span className="relative h-4 w-4 rounded-full bg-accent" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-yellow-500 opacity-75" />
+              <span className="relative h-4 w-4 rounded-full bg-yellow-500" />
             </span>
           </motion.button>
         )}
@@ -240,7 +240,7 @@ export default function Chatbot() {
               <div className="flex items-center gap-2.5">
                 <div className="relative h-8 w-8 rounded-full bg-white/10 flex items-center justify-center">
                   <motion.div animate={{ rotate: 360 }} transition={{ duration: 3, repeat: Infinity }}>
-                    <Bot className="h-4 w-4 text-accent" />
+                    <Bot className="h-4 w-4 text-yellow-600" />
                   </motion.div>
                   <span className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full border-2 border-navy-900 bg-green-400" />
                 </div>
@@ -299,11 +299,11 @@ export default function Chatbot() {
                         className={`h-7 w-7 rounded-full flex items-center justify-center shrink-0 ${
                           m.role === 'bot'
                             ? 'bg-navy-800'
-                            : 'bg-gradient-to-br from-accent to-blue-600'
+                            : 'bg-gradient-to-br from-yellow-400 to-blue-600'
                         }`}
                       >
                         {m.role === 'bot' ? (
-                          <Bot className="h-3.5 w-3.5 text-accent" />
+                          <Bot className="h-3.5 w-3.5 text-yellow-600" />
                         ) : (
                           <User className="h-3.5 w-3.5 text-white" />
                         )}
@@ -312,7 +312,7 @@ export default function Chatbot() {
                         className={`max-w-[80%] rounded-2xl px-3.5 py-2.5 text-[13px] leading-relaxed ${
                           m.role === 'bot'
                             ? 'rounded-tl-sm bg-white dark:bg-navy-800 text-navy-700 dark:text-navy-200 shadow-sm border border-navy-100 dark:border-navy-700'
-                            : 'rounded-tr-sm bg-gradient-to-br from-accent to-blue-600 text-white'
+                            : 'rounded-tr-sm bg-gradient-to-br from-yellow-400 to-blue-600 text-white'
                         }`}
                       >
                         <FormatMessage text={m.text} />
@@ -322,7 +322,7 @@ export default function Chatbot() {
                             animate={{ opacity: 1, y: 0 }}
                             whileHover={{ scale: 1.05 }}
                             onClick={() => setDemoOpen(true)}
-                            className="mt-2 inline-block rounded-lg bg-accent px-3 py-1.5 text-xs font-semibold text-white hover:bg-accent-dark transition"
+                            className="mt-2 inline-block rounded-lg bg-yellow-500 px-3 py-1.5 text-xs font-semibold text-white hover:bg-yellow-500-dark transition"
                           >
                             <Sparkles className="h-3 w-3 inline mr-1" />
                             Open Demo Form
@@ -331,7 +331,7 @@ export default function Chatbot() {
                         <p
                           className={`mt-1 text-[9px] ${
                             m.role === 'bot'
-                              ? 'text-navy-400'
+                              ? 'text-navy-600'
                               : 'text-white/40'
                           }`}
                         >
@@ -343,7 +343,7 @@ export default function Chatbot() {
                   {typing && (
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex gap-2">
                       <div className="h-7 w-7 rounded-full bg-navy-800 flex items-center justify-center">
-                        <Bot className="h-3.5 w-3.5 text-accent" />
+                        <Bot className="h-3.5 w-3.5 text-yellow-600" />
                       </div>
                       <div className="rounded-2xl rounded-tl-sm bg-white dark:bg-navy-800 px-4 py-3 shadow-sm border border-navy-100 dark:border-navy-700">
                         <div className="flex gap-1">
@@ -365,7 +365,7 @@ export default function Chatbot() {
                 {/* Quick Questions */}
                 {msgs.length <= 2 && (
                   <div className="border-t border-navy-100 dark:border-navy-800 bg-white dark:bg-navy-900 px-3 py-2 shrink-0">
-                    <p className="mb-1.5 text-[9px] font-medium uppercase tracking-wider text-navy-400">
+                    <p className="mb-1.5 text-[9px] font-medium uppercase tracking-wider text-navy-600">
                       Quick questions
                     </p>
                     <div className="flex flex-wrap gap-1">
@@ -381,7 +381,7 @@ export default function Chatbot() {
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
                           onClick={() => send(s)}
-                          className="rounded-full border border-accent/20 bg-accent/5 px-2.5 py-1 text-[10px] font-medium text-accent hover:bg-accent/10 transition"
+                          className="rounded-full border border-yellow-300/20 bg-yellow-400/5 px-2.5 py-1 text-[10px] font-medium text-yellow-600 hover:bg-yellow-400/10 transition"
                         >
                           {s}
                         </motion.button>
@@ -396,14 +396,14 @@ export default function Chatbot() {
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     placeholder="Type a message..."
-                    className="flex-1 rounded-xl border border-navy-200 dark:border-navy-700 bg-navy-50 dark:bg-navy-800 px-3.5 py-2 text-sm outline-none focus:border-accent focus:ring-2 focus:ring-accent/30 text-navy-900 dark:text-white placeholder-navy-500 dark:placeholder-navy-400"
+                    className="flex-1 rounded-xl border border-navy-200 dark:border-navy-700 bg-navy-50 dark:bg-navy-800 px-3.5 py-2 text-sm outline-none focus:border-yellow-300 focus:ring-2 focus:ring-accent/30 text-navy-900 dark:text-white placeholder-navy-500 dark:placeholder-navy-400"
                   />
                   <motion.button
                     type="submit"
                     disabled={!input.trim()}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="h-9 w-9 rounded-xl bg-accent text-white flex items-center justify-center hover:bg-accent-dark transition disabled:opacity-40 disabled:cursor-not-allowed"
+                    className="h-9 w-9 rounded-xl bg-yellow-500 text-white flex items-center justify-center hover:bg-yellow-500-dark transition disabled:opacity-40 disabled:cursor-not-allowed"
                   >
                     <Send className="h-3.5 w-3.5" />
                   </motion.button>

@@ -49,7 +49,7 @@ export default function TrustBanner() {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           className="text-center mb-10">
-          <div className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-sm font-medium text-accent mb-4">
+          <div className="inline-flex items-center gap-2 rounded-full border border-yellow-300/30 bg-yellow-400/10 px-4 py-1.5 text-sm font-medium text-yellow-600 mb-4">
             <Shield className="h-4 w-4" />
             Certified TallyPrime Partner · eTIMS Compliant · KRA Approved
           </div>
@@ -64,9 +64,9 @@ export default function TrustBanner() {
             return (
               <motion.div key={s.label} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-                className="relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 text-center group hover:border-accent/30 hover:bg-white/10 transition-all">
-                <div className="mx-auto h-12 w-12 rounded-2xl bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition">
-                  <Icon className="h-6 w-6 text-accent" />
+                className="relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 text-center group hover:border-yellow-300/30 hover:bg-white/10 transition-all">
+                <div className="mx-auto h-12 w-12 rounded-2xl bg-yellow-400/10 flex items-center justify-center mb-4 group-hover:bg-yellow-400/20 transition">
+                  <Icon className="h-6 w-6 text-yellow-600" />
                 </div>
                 <p className="text-3xl sm:text-4xl font-extrabold text-white">
                   <Counter end={s.value} suffix={s.suffix} />
@@ -83,7 +83,7 @@ export default function TrustBanner() {
           className="mt-12 flex flex-wrap items-center justify-center gap-8 opacity-60">
           {['TallyPrime', 'KRA Certified', 'eTIMS Ready', 'ISO Compliant', 'Cloud Enabled'].map(label => (
             <div key={label} className="flex items-center gap-2 text-xs font-medium text-white/50 uppercase tracking-wider">
-              <div className="h-1.5 w-1.5 rounded-full bg-accent" />
+              <div className="h-1.5 w-1.5 rounded-full bg-yellow-500" />
               {label}
             </div>
           ))}

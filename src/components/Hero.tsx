@@ -57,7 +57,7 @@ export default function Hero() {
                 transition={{ duration: 2, repeat: Infinity }}
                 className="inline-flex items-center gap-2"
               >
-                <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
+                <span className="h-2 w-2 rounded-full bg-yellow-500 animate-pulse" />
               </motion.span>
               <motion.span 
                 className="inline-flex items-center gap-2 rounded-full border border-yellow-400/50 bg-yellow-300/15 px-4 py-1.5 text-sm text-yellow-700 font-medium"
@@ -170,15 +170,15 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7, duration: 0.6 }}
               >
-                <Download className="h-4 w-4 text-accent" /> Download Tally
+                <Download className="h-4 w-4 text-yellow-600" /> Download Tally
               </motion.a>
             </div>
 
             {/* Trust Signals */}
             <div className="mt-8 flex flex-wrap gap-5">
               {['KRA & eTIMS Compliant', '24/7 Support', 'Certified Partner', 'Free Training'].map(t => (
-                <span key={t} className="flex items-center gap-1.5 text-sm text-navy-400">
-                  <CheckCircle className="h-4 w-4 text-accent" />{t}
+                <span key={t} className="flex items-center gap-1.5 text-sm text-navy-600">
+                  <CheckCircle className="h-4 w-4 text-yellow-600" />{t}
                 </span>
               ))}
             </div>
@@ -192,24 +192,24 @@ export default function Hero() {
               <div className="rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-xl p-6 shadow-2xl">
                 <div className="flex items-center justify-between mb-5">
                   <div className="flex items-center gap-2.5">
-                    <div className="h-8 w-8 rounded-lg bg-accent/20 flex items-center justify-center">
-                      <BarChart3 className="h-4 w-4 text-accent" />
+                    <div className="h-8 w-8 rounded-lg bg-yellow-400/20 flex items-center justify-center">
+                      <BarChart3 className="h-4 w-4 text-yellow-600" />
                     </div>
                     <h3 className="text-sm font-bold text-white">Business Dashboard</h3>
                   </div>
-                  <span className="rounded-full bg-accent/20 px-3 py-1 text-[10px] font-semibold text-accent animate-pulse-glow">● Live</span>
+                  <span className="rounded-full bg-yellow-400/20 px-3 py-1 text-[10px] font-semibold text-yellow-600 animate-pulse-glow">● Live</span>
                 </div>
 
                 {/* Stats */}
                 <div className="grid grid-cols-2 gap-3 mb-5">
                   {[
-                    { l: 'Revenue', v: 'KES 12.5M', c: 'text-accent', d: '↑ 23% this quarter' },
+                    { l: 'Revenue', v: 'KES 12.5M', c: 'text-yellow-600', d: '↑ 23% this quarter' },
                     { l: 'Expenses', v: 'KES 8.2M', c: 'text-red-400', d: '↓ 5% optimized' },
                     { l: 'Inventory', v: '2,847 items', c: 'text-amber-400', d: 'All tracked' },
                     { l: 'Payroll', v: '156 staff', c: 'text-cyan-400', d: 'PAYE compliant' },
                   ].map(x => (
                     <div key={x.l} className="rounded-xl bg-white/[0.04] border border-white/5 p-3.5">
-                      <p className="text-[10px] text-navy-400 font-medium">{x.l}</p>
+                      <p className="text-[10px] text-navy-600 font-medium">{x.l}</p>
                       <p className="mt-1 text-xl font-bold text-white">{x.v}</p>
                       <p className={`text-[10px] mt-0.5 ${x.c}`}>{x.d}</p>
                     </div>
@@ -218,11 +218,11 @@ export default function Hero() {
 
                 {/* Chart */}
                 <div>
-                  <p className="text-[10px] text-navy-400 font-medium mb-2">Monthly Performance</p>
+                  <p className="text-[10px] text-navy-600 font-medium mb-2">Monthly Performance</p>
                   <div className="flex items-end gap-1.5 h-20">
                     {[35, 55, 45, 70, 60, 85, 70, 80, 90, 65, 82, 88].map((h, i) => (
                       <motion.div key={i} initial={{ height: 0 }} animate={{ height: `${h}%` }} transition={{ delay: 0.5 + i * 0.05, duration: 0.5 }}
-                        className="flex-1 rounded-t bg-gradient-to-t from-accent to-accent-light" />
+                        className="flex-1 rounded-t bg-gradient-to-t from-yellow-400 to-yellow-600-light" />
                     ))}
                   </div>
                   <div className="flex justify-between mt-1.5 text-[8px] text-navy-500">
@@ -235,12 +235,12 @@ export default function Hero() {
               <motion.div animate={{ y: [0, -8, 0] }} transition={{ duration: 3, repeat: Infinity }}
                 className="absolute -bottom-4 -left-4 rounded-xl border border-white/10 bg-navy-900/95 p-3.5 shadow-2xl backdrop-blur">
                 <div className="flex items-center gap-3">
-                  <div className="h-10 w-10 rounded-xl bg-accent/20 flex items-center justify-center">
-                    <Play className="h-4 w-4 text-accent" />
+                  <div className="h-10 w-10 rounded-xl bg-yellow-400/20 flex items-center justify-center">
+                    <Play className="h-4 w-4 text-yellow-600" />
                   </div>
                   <div>
-                    <p className="text-[10px] text-navy-400 font-medium">KRA & eTIMS</p>
-                    <p className="text-sm font-bold text-accent">Compliant ✓</p>
+                    <p className="text-[10px] text-navy-600 font-medium">KRA & eTIMS</p>
+                    <p className="text-sm font-bold text-yellow-600">Compliant ✓</p>
                   </div>
                 </div>
               </motion.div>
@@ -250,13 +250,13 @@ export default function Hero() {
                 className="absolute -top-3 -right-3 rounded-xl border border-white/10 bg-navy-900/95 p-3 shadow-xl backdrop-blur">
                 <div className="flex items-center gap-2">
                   <div className="flex -space-x-1.5">
-                    {['bg-accent', 'bg-blue-500', 'bg-purple-500'].map((c, i) => (
+                    {['bg-yellow-500', 'bg-blue-500', 'bg-purple-500'].map((c, i) => (
                       <div key={i} className={`h-6 w-6 rounded-full ${c} border-2 border-navy-900 flex items-center justify-center text-[8px] font-bold text-white`}>
                         {['JM', 'GW', 'PO'][i]}
                       </div>
                     ))}
                   </div>
-                  <span className="text-[10px] text-navy-400">+497 users</span>
+                  <span className="text-[10px] text-navy-600">+497 users</span>
                 </div>
               </motion.div>
             </div>

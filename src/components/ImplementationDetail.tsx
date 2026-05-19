@@ -42,13 +42,13 @@ export default function ImplementationDetail() {
           viewport={{ once: true }}
           className="max-w-3xl"
         >
-          <span className="inline-block rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-accent-light">
+          <span className="inline-block rounded-full border border-yellow-300/30 bg-yellow-400/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-yellow-600-light">
             Senior implementation approach
           </span>
           <h2 className="mt-5 text-3xl sm:text-4xl font-bold tracking-tight">
             A complete TallyPrime rollout, not just software installation.
           </h2>
-          <p className="mt-4 text-navy-300 leading-relaxed">
+          <p className="mt-4 text-navy-700 leading-relaxed">
             The final website now presents Optimum Prime Solutions as a premium implementation partner. It explains licensing, migration, compliance, support, and governance in a way business owners, accountants, and directors can trust.
           </p>
         </motion.div>
@@ -65,14 +65,14 @@ export default function ImplementationDetail() {
                 transition={{ delay: index * 0.08 }}
                 className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm"
               >
-                <div className="h-11 w-11 rounded-xl bg-accent/15 flex items-center justify-center mb-5">
-                  <Icon className="h-5 w-5 text-accent-light" />
+                <div className="h-11 w-11 rounded-xl bg-yellow-400/15 flex items-center justify-center mb-5">
+                  <Icon className="h-5 w-5 text-yellow-600-light" />
                 </div>
                 <h3 className="text-base font-bold">{item.title}</h3>
                 <ul className="mt-4 space-y-2.5">
                   {item.points.map((point) => (
-                    <li key={point} className="flex gap-2 text-sm text-navy-300 leading-relaxed">
-                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-accent-light" />
+                    <li key={point} className="flex gap-2 text-sm text-navy-700 leading-relaxed">
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-yellow-600-light" />
                       {point}
                     </li>
                   ))}
@@ -90,8 +90,8 @@ export default function ImplementationDetail() {
         >
           <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-8 items-start">
             <div>
-              <div className="h-12 w-12 rounded-2xl bg-accent/15 flex items-center justify-center mb-4">
-                <ShieldCheck className="h-6 w-6 text-accent-light" />
+              <div className="h-12 w-12 rounded-2xl bg-yellow-400/15 flex items-center justify-center mb-4">
+                <ShieldCheck className="h-6 w-6 text-yellow-600-light" />
               </div>
               <h3 className="text-xl font-bold">Controls that protect your business</h3>
               <p className="mt-3 text-sm leading-relaxed text-navy-300">

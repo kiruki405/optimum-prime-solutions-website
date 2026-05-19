@@ -30,8 +30,8 @@ export default function StickyDownloadBar() {
             <div className="flex items-center justify-between h-11">
               <div className="flex items-center gap-3">
                 <div className="hidden sm:flex items-center gap-2">
-                  <div className="h-6 w-6 rounded bg-accent/20 flex items-center justify-center">
-                    <Download className="h-3.5 w-3.5 text-accent" />
+                  <div className="h-6 w-6 rounded bg-yellow-400/20 flex items-center justify-center">
+                    <Download className="h-3.5 w-3.5 text-yellow-600" />
                   </div>
                   <span className="text-xs font-medium text-white/80">
                     Try TallyPrime free — Education Mode, no license needed
@@ -46,7 +46,7 @@ export default function StickyDownloadBar() {
                   href="https://tallysolutions.com/ssa/download/"
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-1.5 rounded-lg bg-accent px-3.5 py-1.5 text-[11px] font-bold text-white hover:bg-accent-dark transition"
+                  className="flex items-center gap-1.5 rounded-lg bg-yellow-500 px-3.5 py-1.5 text-[11px] font-bold text-white hover:bg-yellow-500-dark transition"
                 >
                   Download Now
                   <ArrowRight className="h-3 w-3" />

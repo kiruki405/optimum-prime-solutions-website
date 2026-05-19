@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { PhoneCall, Settings, Rocket, HeadphonesIcon } from 'lucide-react';
 
 const steps = [
-  { icon: PhoneCall, num: '01', title: 'Free Consultation', desc: 'Tell us about your business. We\'ll analyze your needs and recommend the right Tally Prime solution — Silver, Gold, Plus, Enterprise, or Custom TDL.', color: 'from-accent to-blue-400' },
+  { icon: PhoneCall, num: '01', title: 'Free Consultation', desc: 'Tell us about your business. We\'ll analyze your needs and recommend the right Tally Prime solution — Silver, Gold, Plus, Enterprise, or Custom TDL.', color: 'from-yellow-400 to-blue-400' },
   { icon: Settings, num: '02', title: 'Setup & Migration', desc: 'Our certified team installs Tally Prime, migrates your data from Excel, QuickBooks, or Sage, and configures KRA/eTIMS compliance.', color: 'from-blue-500 to-cyan-400' },
   { icon: Rocket, num: '03', title: 'Training & Go Live', desc: 'Comprehensive hands-on training for your team — accounting, inventory, payroll, and reporting. Go live with confidence.', color: 'from-purple-500 to-pink-400' },
   { icon: HeadphonesIcon, num: '04', title: 'Ongoing Support', desc: '24/7 remote support with < 1 hour response time. Regular updates, health checks, and on-site visits when you need them.', color: 'from-amber-500 to-orange-400' },
@@ -14,9 +14,9 @@ export default function HowItWorks() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           className="text-center max-w-3xl mx-auto">
-          <span className="inline-block rounded-full bg-accent/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-accent">How It Works</span>
+          <span className="inline-block rounded-full bg-yellow-400/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-yellow-600">How It Works</span>
           <h2 className="mt-4 text-3xl sm:text-4xl font-bold text-navy-900 dark:text-white">
-            From Zero to Tally Prime in <span className="text-accent">4 Simple Steps</span>
+            From Zero to Tally Prime in <span className="text-yellow-600">4 Simple Steps</span>
           </h2>
           <p className="mt-4 text-navy-600 dark:text-navy-300">
             We make the transition seamless. Most businesses are up and running within a week.
@@ -25,7 +25,7 @@ export default function HowItWorks() {
 
         <div className="mt-16 relative">
           {/* Connecting Line (desktop) */}
-          <div className="hidden lg:block absolute top-24 left-[12.5%] right-[12.5%] h-0.5 bg-gradient-to-r from-accent/20 via-accent/40 to-accent/20" />
+          <div className="hidden lg:block absolute top-24 left-[12.5%] right-[12.5%] h-0.5 bg-gradient-to-r from-yellow-400/20 via-accent/40 to-yellow-600/20" />
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {steps.map((step, i) => {
@@ -48,7 +48,7 @@ export default function HowItWorks() {
                   </div>
 
                   <h3 className="text-lg font-bold text-navy-900 dark:text-white">{step.title}</h3>
-                  <p className="mt-2 text-sm text-navy-600 dark:text-navy-400 leading-relaxed">{step.desc}</p>
+                  <p className="mt-2 text-sm text-navy-600 dark:text-navy-600 leading-relaxed">{step.desc}</p>
                 </motion.div>
               );
             })}
@@ -67,7 +67,7 @@ export default function HowItWorks() {
               Join 500+ Kenyan businesses already running smarter with Tally Prime. Get the full experience with a free, personalized demo.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-              <a href="#contact" className="rounded-xl bg-accent px-8 py-4 text-sm font-bold text-white shadow-xl shadow-accent/30 hover:bg-accent-dark transition-all hover:scale-105">
+              <a href="#contact" className="rounded-xl bg-yellow-500 px-8 py-4 text-sm font-bold text-white shadow-xl shadow-yellow-400/30 hover:bg-yellow-500-dark transition-all hover:scale-105">
                 Request Free Demo
               </a>
               <a href="https://tallysolutions.com/ssa/download/" target="_blank" rel="noreferrer"
@@ -75,7 +75,7 @@ export default function HowItWorks() {
                 Download TallyPrime
               </a>
             </div>
-            <p className="mt-6 text-xs text-navy-400">
+            <p className="mt-6 text-xs text-navy-600">
               ✓ No commitment required · ✓ Free installation help · ✓ KRA & eTIMS pre-configured
             </p>
           </div>
