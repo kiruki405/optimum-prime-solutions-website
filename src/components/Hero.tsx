@@ -30,22 +30,22 @@ export default function Hero() {
   };
   
   return (
-    <section id="home" className="relative min-h-screen overflow-hidden bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800">
+    <section id="home" className="relative min-h-screen overflow-hidden bg-gradient-to-br from-white via-navy-50 to-navy-700">
       {/* Animated background elements */}
       <div className="absolute inset-0">
         <motion.div 
           animate={{ y: [0, 30, 0], opacity: [0.15, 0.25, 0.15] }}
           transition={{ duration: 8, repeat: Infinity }}
-          className="absolute top-20 left-10 w-96 h-96 bg-accent/20 rounded-full blur-3xl" 
+          className="absolute top-20 left-10 w-96 h-96 bg-yellow-400/30 rounded-full blur-3xl" 
         />
         <motion.div 
           animate={{ y: [0, -30, 0], opacity: [0.1, 0.2, 0.1] }}
           transition={{ duration: 10, repeat: Infinity, delay: 2 }}
-          className="absolute bottom-10 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" 
+          className="absolute bottom-10 right-10 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl" 
         />
       </div>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_50%,rgba(37,99,235,0.12),transparent_60%)]" />
-      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23fff'%3E%3Ccircle cx='20' cy='20' r='1'/%3E%3C/g%3E%3C/svg%3E")` }} />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_50%,rgba(255,215,0,0.15),transparent_60%)]" />
+      <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000'%3E%3Ccircle cx='20' cy='20' r='1'/%3E%3C/g%3E%3C/svg%3E")` }} />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-32 pb-24 lg:pt-40 lg:pb-32">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -60,18 +60,18 @@ export default function Hero() {
                 <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
               </motion.span>
               <motion.span 
-                className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 text-sm text-accent font-medium"
+                className="inline-flex items-center gap-2 rounded-full border border-yellow-400/50 bg-yellow-300/15 px-4 py-1.5 text-sm text-yellow-700 font-medium"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2, duration: 0.6 }}
-                whileHover={{ scale: 1.05, backgroundColor: "rgba(37, 99, 235, 0.2)" }}
+                whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 215, 0, 0.25)" }}
               >
                 #1 TallyPrime Partner in Kenya
               </motion.span>
             </div>
 
             <motion.h1 
-              className="text-4xl sm:text-5xl lg:text-[56px] font-extrabold text-white leading-[1.08] tracking-tight"
+              className="text-4xl sm:text-5xl lg:text-[56px] font-extrabold text-navy-900 leading-[1.08] tracking-tight"
               style={{ perspective: "1200px" }}
             >
               <motion.span
@@ -89,7 +89,7 @@ export default function Hero() {
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
                 style={{ transformStyle: 'preserve-3d' }}
               >
-                <span className="bg-gradient-to-r from-accent via-blue-200 to-accent bg-clip-text text-transparent animate-gradient">
+                <span className="bg-gradient-to-r from-yellow-500 via-yellow-400 to-yellow-600 bg-clip-text text-transparent animate-gradient">
                   Smart Tally Prime
                 </span>
               </motion.span>
@@ -114,16 +114,16 @@ export default function Hero() {
               <motion.div
                 animate={{ y: [-3, 3, -3] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="inline-flex items-center gap-2.5 rounded-lg bg-gradient-to-r from-accent/20 via-accent/10 to-blue-500/20 px-5 py-3 border border-accent/30 backdrop-blur-sm"
+                className="inline-flex items-center gap-2.5 rounded-lg bg-gradient-to-r from-yellow-200/30 via-yellow-100/20 to-blue-200/20 px-5 py-3 border border-yellow-300/50 backdrop-blur-sm"
               >
-                <Zap className="h-5 w-5 text-accent animate-pulse" />
-                <span className="text-lg font-semibold bg-gradient-to-r from-accent to-blue-300 bg-clip-text text-transparent">
+                <Zap className="h-5 w-5 text-yellow-600 animate-pulse" />
+                <span className="text-lg font-semibold bg-gradient-to-r from-yellow-600 to-blue-700 bg-clip-text text-transparent">
                   {data.company?.tagline || 'Smart Business Solutions For Smart Entrepreneurs'}
                 </span>
               </motion.div>
             </motion.div>
 
-            <p className="mt-6 text-lg text-navy-300 leading-relaxed max-w-lg">
+            <p className="mt-6 text-lg text-navy-700 leading-relaxed max-w-lg">
               Run your business like a pro. From accounting & inventory to KRA compliance & eTIMS — we implement, customize, and support TallyPrime for Kenyan businesses of all sizes.
             </p>
 
@@ -131,7 +131,7 @@ export default function Hero() {
             <div className="mt-8 flex flex-wrap gap-3">
               <motion.a 
                 href="#contact" 
-                className="group inline-flex items-center gap-2 rounded-xl bg-accent px-7 py-4 text-sm font-bold text-white shadow-xl shadow-accent/25 hover:bg-accent-dark hover:scale-[1.02] transition-all"
+                className="group inline-flex items-center gap-2 rounded-xl bg-yellow-500 px-7 py-4 text-sm font-bold text-navy-900 shadow-xl shadow-yellow-300/40 hover:bg-yellow-400 hover:scale-[1.02] transition-all"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 initial={{ opacity: 0, y: 20 }}
@@ -147,15 +147,15 @@ export default function Hero() {
                 href={`https://wa.me/${data.contact.whatsapp}?text=Hi%20Optimum%20Prime%20Solutions,%20I'm%20interested%20in%20TallyPrime`} 
                 target="_blank" 
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-4 text-sm font-bold text-white backdrop-blur-sm hover:bg-white/10 transition-all"
-                whileHover={{ scale: 1.05, borderColor: "rgba(37, 99, 235, 0.5)" }}
+                className="inline-flex items-center gap-2 rounded-xl border border-navy-300 bg-navy-50/80 px-6 py-4 text-sm font-bold text-navy-900 backdrop-blur-sm hover:bg-navy-100 transition-all"
+                whileHover={{ scale: 1.05, borderColor: "rgba(255, 215, 0, 0.5)" }}
                 whileTap={{ scale: 0.98 }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.6 }}
               >
                 <motion.div animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 2, repeat: Infinity }}>
-                  <MessageCircle className="h-4 w-4 text-blue-200" />
+                  <MessageCircle className="h-4 w-4 text-yellow-600" />
                 </motion.div>
                 Chat on WhatsApp
               </motion.a>
