@@ -30,7 +30,7 @@ export default function Hero() {
   };
   
   return (
-    <section id="home" className="relative min-h-screen overflow-hidden bg-gradient-to-br from-white via-navy-50 to-navy-700">
+    <section id="home" className="relative min-h-screen overflow-hidden bg-gradient-to-br from-navy-900 via-navy-800 to-navy-700">
       {/* Animated background elements */}
       <div className="absolute inset-0">
         <motion.div 
@@ -71,7 +71,7 @@ export default function Hero() {
             </div>
 
             <motion.h1 
-              className="text-4xl sm:text-5xl lg:text-[56px] font-extrabold text-navy-900 leading-[1.08] tracking-tight"
+              className="text-4xl sm:text-5xl lg:text-[56px] font-extrabold text-white leading-[1.08] tracking-tight"
               style={{ perspective: "1200px" }}
             >
               <motion.span
@@ -123,7 +123,7 @@ export default function Hero() {
               </motion.div>
             </motion.div>
 
-            <p className="mt-6 text-lg text-navy-700 leading-relaxed max-w-lg">
+            <p className="mt-6 text-lg text-white leading-relaxed max-w-lg">
               Run your business like a pro. From accounting & inventory to KRA compliance & eTIMS — we implement, customize, and support TallyPrime for Kenyan businesses of all sizes.
             </p>
 
@@ -131,7 +131,7 @@ export default function Hero() {
             <div className="mt-8 flex flex-wrap gap-3">
               <motion.a 
                 href="#contact" 
-                className="group inline-flex items-center gap-2 rounded-xl bg-yellow-500 px-7 py-4 text-sm font-bold text-navy-900 shadow-xl shadow-yellow-300/40 hover:bg-yellow-400 hover:scale-[1.02] transition-all"
+                className="group inline-flex items-center gap-2 rounded-xl bg-blue-600 px-7 py-4 text-sm font-bold text-white shadow-xl shadow-blue-500/30 hover:bg-blue-700 hover:scale-[1.02] transition-all"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 initial={{ opacity: 0, y: 20 }}

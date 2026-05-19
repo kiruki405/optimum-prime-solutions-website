@@ -28,10 +28,10 @@ export default function Logo({ className = 'h-10 w-auto', variant = 'full', isDa
           <stop offset="100%" style={{ stopColor: cloudColor2, stopOpacity: 1 }} />
         </linearGradient>
 
-        {/* Gradient for text */}
+        {/* Gradient for text - Gold to Blue blend */}
         <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" style={{ stopColor: '#102a43', stopOpacity: 1 }} />
-          <stop offset="100%" style={{ stopColor: cloudColor1, stopOpacity: 1 }} />
+          <stop offset="0%" style={{ stopColor: '#ffd700', stopOpacity: 1 }} />
+          <stop offset="100%" style={{ stopColor: '#2563eb', stopOpacity: 1 }} />
         </linearGradient>
 
         {/* Shadow filter */}

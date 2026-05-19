@@ -30,7 +30,7 @@ export default function Features() {
   };
 
   return (
-    <section id="services" className="relative py-32 bg-gradient-to-b from-white via-navy-50 to-navy-100 dark:from-navy-100 dark:via-navy-200 dark:to-navy-900/50 overflow-hidden perspective">
+    <section id="services" className="relative py-32 bg-gradient-to-b from-navy-900 via-navy-800 to-navy-700 dark:from-navy-900 dark:via-navy-800 dark:to-navy-800 overflow-hidden perspective">
       {/* Animated background elements */}
       <div className="absolute -top-40 -right-40 w-80 h-80 bg-yellow-400/10 rounded-full blur-3xl opacity-30" />
       <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl opacity-20" />
@@ -41,10 +41,10 @@ export default function Features() {
             <Sparkles className="h-5 w-5 text-yellow-600" />
           </motion.span>
           <span className="inline-block rounded-full bg-yellow-400/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-yellow-600 ml-2">Our Services</span>
-          <h2 className="mt-6 text-4xl sm:text-5xl font-extrabold text-navy-900 dark:text-navy-900 leading-tight">
+          <h2 className="mt-6 text-4xl sm:text-5xl font-extrabold text-white dark:text-white leading-tight">
             End-to-End <span className="bg-gradient-to-r from-yellow-400 to-blue-600 bg-clip-text text-transparent">Tally Prime</span> Solutions
           </h2>
-          <p className="mt-6 text-lg text-navy-600 dark:text-navy-700 leading-relaxed">
+          <p className="mt-6 text-lg text-white dark:text-white leading-relaxed">
             From installation to customization, we cover every aspect of your business management needs with expert support and proven results.
           </p>
         </motion.div>
@@ -64,7 +64,7 @@ export default function Features() {
                 key={svc.id}
                 variants={itemVariants}
                 whileHover={{ y: -12, rotateX: -5, transition: { duration: 0.3 } }}
-                className="group relative rounded-2xl border border-navy-100 dark:border-navy-700 bg-white dark:bg-navy-800/50 p-6 shadow-md hover:shadow-2xl hover:shadow-yellow-400/30 transition-all duration-300 overflow-hidden"
+                className="group relative rounded-2xl border border-blue-500/30 dark:border-blue-400/30 bg-navy-800/60 dark:bg-navy-800/70 p-6 shadow-md hover:shadow-2xl hover:shadow-blue-400/30 transition-all duration-300 overflow-hidden"
                 style={{ transformStyle: 'preserve-3d' }}
               >
                 {/* Gradient border on hover */}
@@ -98,10 +98,10 @@ export default function Features() {
                   <Ic className="h-6 w-6 text-yellow-600 relative z-10" />
                 </motion.div>
 
-                <h3 className="text-base font-bold text-navy-900 dark:text-white group-hover:text-yellow-600 transition-colors">
+                <h3 className="text-base font-bold text-white dark:text-white group-hover:text-yellow-400 transition-colors">
                   {svc.title}
                 </h3>
-                <p className="mt-3 text-sm text-navy-600 dark:text-navy-700 leading-relaxed line-clamp-2">
+                <p className="mt-3 text-sm text-gray-200 dark:text-gray-300 leading-relaxed line-clamp-2">
                   {svc.desc}
                 </p>
 
@@ -111,7 +111,7 @@ export default function Features() {
                     <motion.li
                       key={f}
                       whileHover={{ x: 4 }}
-                      className="flex items-center gap-2 text-xs text-navy-500 dark:text-navy-600"
+                      className="flex items-center gap-2 text-xs text-gray-300 dark:text-gray-400"
                     >
                       <motion.span
                         className="h-2 w-2 rounded-full bg-gradient-to-r from-yellow-400 to-blue-500"

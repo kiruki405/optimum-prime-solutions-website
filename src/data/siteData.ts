@@ -67,7 +67,7 @@ export const defaultData: SiteData = {
     {id:'5',q:'Can I access Tally Prime remotely?',a:'Yes! Tally Prime Gold supports remote access. With our cloud setup, you can access your data from anywhere — perfect for teams working across multiple locations.',cat:'General'},
     {id:'6',q:'How long does implementation take?',a:'Basic setup takes 1-2 days. Full enterprise implementation with data migration and training typically takes 1-2 weeks, depending on complexity.',cat:'Services'},
     {id:'7',q:'Do you offer after-sales support?',a:'Absolutely. We provide 24/7 remote support with average response under 1 hour, plus scheduled on-site visits. Support plans start from KES 5,000/month.',cat:'Support'},
-    {id:'8',q:'Can I migrate from QuickBooks/Sage?',a:'Yes, we handle full data migration from QuickBooks, Sage, Excel, and other systems. All historical data is accurately transferred with zero downtime.',cat:'Services'},
+    {id:'8',q:'Can I migrate from Excel or other software?',a:'Yes, we handle full data migration from Excel, spreadsheets, and other systems. All historical data is accurately transferred with zero downtime, ensuring no loss of critical information.',cat:'Services'},
     {id:'9',q:'Is my data secure?',a:'Tally Prime provides enterprise-grade security with role-based access, audit trails, encrypted storage, and automated backups. We also set up disaster recovery plans.',cat:'Security'},
     {id:'10',q:'Do you serve businesses outside Nairobi?',a:'Yes! We serve clients across Kenya and East Africa. Remote support is available nationwide, and we schedule on-site visits for implementation anywhere in the region.',cat:'General'},
   ],
