@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { SiteProvider } from './context/SiteContext';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
+import Hero3D from './components/Hero3D';
 import TrustBanner from './components/TrustBanner';
 import About from './components/About';
 import FeatureShowcase from './components/FeatureShowcase';
@@ -49,7 +49,7 @@ function Inner() {
     <div className="min-h-screen bg-white dark:bg-navy-950">
       <StickyDownloadBar />
       <Navbar />
-      <Hero />
+      <Hero3D />
       <TrustBanner />
       <About />
       <FeatureShowcase />
