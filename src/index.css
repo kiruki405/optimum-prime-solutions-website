@@ -23,8 +23,8 @@
 }
 
 html { scroll-behavior: smooth; }
-body { font-family: var(--font-sans); background-color: #152b47; color: #f8fafb; }
-body.dark { --tw-bg-opacity: 1; background-color: rgb(10 25 41 / var(--tw-bg-opacity)); color: #e2e8f0; }
+body { font-family: var(--font-sans); background: linear-gradient(135deg, #1f3a5f 0%, #2563eb 25%, #ffd700 50%, #ffffff 100%); color: #f8fafb; min-height: 100vh; }
+body.dark { --tw-bg-opacity: 1; background: linear-gradient(135deg, #1f3a5f 0%, #2563eb 25%, #ffd700 50%, #ffffff 100%); color: #e2e8f0; }
 
 @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
 @keyframes pulse-glow { 0%,100%{box-shadow:0 0 5px rgba(255,215,0,.3)} 50%{box-shadow:0 0 20px rgba(255,215,0,.6)} }

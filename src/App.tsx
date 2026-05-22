@@ -7,7 +7,6 @@ import About from './components/About';
 import FeatureShowcase from './components/FeatureShowcase';
 import Features from './components/Features';
 import HowItWorks from './components/HowItWorks';
-import ImplementationDetail from './components/ImplementationDetail';
 import Products from './components/Products';
 import Industries from './components/Industries';
 import Testimonials from './components/Testimonials';
@@ -55,7 +54,6 @@ function Inner() {
       <FeatureShowcase />
       <Features />
       <HowItWorks />
-      <ImplementationDetail />
       <Products />
       <Industries />
       <Testimonials />

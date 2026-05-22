@@ -31,7 +31,7 @@ export default function FeatureShowcase() {
           <h2 className="mt-4 text-3xl sm:text-4xl font-bold text-navy-900 dark:text-white">
             Make the Most Out of <span className="text-yellow-600">TallyPrime</span>
           </h2>
-          <p className="mt-4 text-navy-600 dark:text-navy-300">
+          <p className="mt-4 text-white">
             Everything you need to run your business like a pro — simple to learn, effortless to master.
           </p>
         </motion.div>
