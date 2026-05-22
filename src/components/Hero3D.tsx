@@ -1,6 +1,6 @@
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import { useEffect, useState, useRef } from 'react';
-import { ArrowRight, Sparkles, Download, MessageCircle } from 'lucide-react';
+import { ArrowRight, Download, MessageCircle } from 'lucide-react';
 import { useSite } from '../context/SiteContext';
 
 export default function Hero3D() {
@@ -133,16 +133,6 @@ export default function Hero3D() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="z-10"
           >
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="inline-flex items-center gap-2 rounded-full bg-yellow-500/10 px-4 py-2 mb-6"
-            >
-              <Sparkles className="h-4 w-4 text-yellow-500 animate-pulse" />
-              <span className="text-sm font-semibold text-yellow-500">Welcome to Excellence</span>
-            </motion.div>
-
             {/* 3D Headline with letters appearing */}
             <motion.h1 
               className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.08] tracking-tight mb-6"
