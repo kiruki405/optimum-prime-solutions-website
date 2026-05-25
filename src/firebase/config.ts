@@ -50,10 +50,10 @@ export const fbSubscribe = (path: string, callback: (data: any) => void) => {
   try {
     if (!database) return () => {};
     const dataRef = fbRef(path);
-    onValue(dataRef, (snapshot) => {
+    const unsubscribe = onValue(dataRef, (snapshot) => {
       callback(snapshot.val());
     });
-    return () => off(dataRef);
+    return unsubscribe;
   } catch (error) {
     console.error('Firebase subscribe error:', error);
     return () => {};

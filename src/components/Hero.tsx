@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle, Download, MessageCircle, Play, BarChart3, Sparkles, Zap } from 'lucide-react';
 import { useSite } from '../context/SiteContext';
 
@@ -129,20 +130,24 @@ export default function Hero() {
 
             {/* CTA Buttons */}
             <div className="mt-8 flex flex-wrap gap-3">
-              <motion.a 
-                href="#contact" 
-                className="group inline-flex items-center gap-2 rounded-xl bg-blue-600 px-7 py-4 text-sm font-bold text-white shadow-xl shadow-blue-500/30 hover:bg-blue-700 hover:scale-[1.02] transition-all"
+              <motion.div 
+                className="inline-flex"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.6 }}
               >
-                Request Demo
-                <motion.div animate={{ x: [0, 4, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
-                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </motion.div>
-              </motion.a>
+                <Link 
+                  to="/contact" 
+                  className="group inline-flex items-center gap-2 rounded-xl bg-blue-600 px-7 py-4 text-sm font-bold text-white shadow-xl shadow-blue-500/30 hover:bg-blue-700 hover:scale-[1.02] transition-all"
+                >
+                  Request Demo
+                  <motion.div animate={{ x: [0, 4, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
+                    <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </motion.div>
+                </Link>
+              </motion.div>
               <motion.a 
                 href={`https://wa.me/${data.contact.whatsapp}?text=Hi%20Optimum%20Prime%20Solutions,%20I'm%20interested%20in%20TallyPrime`} 
                 target="_blank" 

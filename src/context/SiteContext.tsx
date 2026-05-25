@@ -30,6 +30,8 @@ export function SiteProvider({ children }: { children: ReactNode }) {
   const [synced, setSynced] = useState(false);
 
   useEffect(() => {
+    let unsubscribe: (() => void) | null = null;
+
     const syncData = async () => {
       try {
         const fbData = await fbGet('siteData');
@@ -43,15 +45,13 @@ export function SiteProvider({ children }: { children: ReactNode }) {
         }
         setSynced(true);
 
-        const unsubscribe = fbSubscribe('siteData', (fbData) => {
+        unsubscribe = fbSubscribe('siteData', (fbData) => {
           if (fbData) {
             const merged = { ...defaultData, ...fbData, leads: fbData.leads || [] };
             setData(merged);
             save(merged);
           }
         });
-
-        return unsubscribe;
       } catch (error) {
         console.log('Firebase sync failed, using local storage');
         setSynced(true);
@@ -59,6 +59,10 @@ export function SiteProvider({ children }: { children: ReactNode }) {
     };
 
     syncData();
+
+    return () => {
+      if (unsubscribe) unsubscribe();
+    };
   }, []);
 
   const update = useCallback((d: SiteData) => {

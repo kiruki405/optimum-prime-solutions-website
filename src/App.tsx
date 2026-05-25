@@ -1,19 +1,9 @@
 import { useState, useEffect } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import { SiteProvider } from './context/SiteContext';
 import ErrorBoundary from './components/ErrorBoundary';
 import { OfflineBanner } from './components/OfflineBanner';
 import Navbar from './components/Navbar';
-import Hero3D from './components/Hero3D';
-import TrustBanner from './components/TrustBanner';
-import About from './components/About';
-import FeatureShowcase from './components/FeatureShowcase';
-import Features from './components/Features';
-import HowItWorks from './components/HowItWorks';
-import Products from './components/Products';
-import Testimonials from './components/Testimonials';
-import Blog from './components/Blog';
-import FAQ from './components/FAQ';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Chatbot from './components/Chatbot';
 import WhatsAppButton from './components/WhatsAppButton';
@@ -21,10 +11,21 @@ import StickyDownloadBar from './components/StickyDownloadBar';
 import AdminLogin from './admin/AdminLogin';
 import AdminLayout from './admin/AdminLayout';
 
+// Import pages
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import FeaturesPage from './pages/FeaturesPage';
+import ProductsPage from './pages/ProductsPage';
+import TestimonialsPage from './pages/TestimonialsPage';
+import BlogPage from './pages/BlogPage';
+import FAQPage from './pages/FAQPage';
+import ContactPage from './pages/ContactPage';
+
 type View = 'site' | 'login' | 'admin';
 
 function Inner() {
   const [view, setView] = useState<View>('site');
+  const navigate = useNavigate();
 
   useEffect(() => {
     const check = () => {
@@ -42,24 +43,45 @@ function Inner() {
     return () => window.removeEventListener('hashchange', check);
   }, []);
 
-  if (view === 'login') return <AdminLogin onLogin={() => { sessionStorage.setItem('ops_admin', '1'); localStorage.setItem('ops_admin', '1'); setView('admin'); }} />;
-  if (view === 'admin') return <AdminLayout onLogout={() => { sessionStorage.removeItem('ops_admin'); localStorage.removeItem('ops_admin'); window.location.hash = ''; setView('site'); }} />;
+  if (view === 'login') 
+    return (
+      <AdminLogin 
+        onLogin={() => { 
+          sessionStorage.setItem('ops_admin', '1'); 
+          localStorage.setItem('ops_admin', '1'); 
+          setView('admin'); 
+        }} 
+      />
+    );
+  
+  if (view === 'admin') 
+    return (
+      <AdminLayout 
+        onLogout={() => { 
+          sessionStorage.removeItem('ops_admin'); 
+          localStorage.removeItem('ops_admin'); 
+          window.location.hash = ''; 
+          setView('site'); 
+        }} 
+      />
+    );
 
   return (
-    <div className="min-h-screen bg-navy-950 text-white">
+    <div className="min-h-screen bg-navy-950 text-white flex flex-col">
       <StickyDownloadBar />
       <Navbar />
-      <Hero3D />
-      <TrustBanner />
-      <About />
-      <FeatureShowcase />
-      <Features />
-      <HowItWorks />
-      <Products />
-      <Testimonials />
-      <Blog />
-      <FAQ />
-      <Contact />
+      <main className="flex-grow pt-18">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/features" element={<FeaturesPage />} />
+          <Route path="/products" element={<ProductsPage />} />
+          <Route path="/testimonials" element={<TestimonialsPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/faq" element={<FAQPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
+      </main>
       <Footer />
       <Chatbot />
       <WhatsAppButton />

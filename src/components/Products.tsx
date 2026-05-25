@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Check, Star, TrendingUp, Zap, Crown } from 'lucide-react';
 import { useSite } from '../context/SiteContext';
 
@@ -154,18 +155,22 @@ export default function Products() {
               </ul>
 
               {/* CTA Button */}
-              <motion.a
-                href="#contact"
+              <motion.div
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className={`mt-8 block text-center rounded-xl py-3 text-sm font-semibold transition relative z-10 ${
-                  p.popular
-                    ? 'bg-gradient-to-r from-yellow-400 to-blue-600 text-white hover:shadow-lg hover:shadow-yellow-400/40 shadow-lg shadow-yellow-400/25'
-                    : 'bg-navy-100 dark:bg-navy-700 text-navy-900 dark:text-white hover:bg-navy-200 dark:hover:bg-navy-600'
-                }`}
+                className="mt-8"
               >
-                {p.cta}
-              </motion.a>
+                <Link
+                  to="/contact"
+                  className={`block text-center rounded-xl py-3 text-sm font-semibold transition relative z-10 ${
+                    p.popular
+                      ? 'bg-gradient-to-r from-yellow-400 to-blue-600 text-white hover:shadow-lg hover:shadow-yellow-400/40 shadow-lg shadow-yellow-400/25'
+                      : 'bg-navy-100 dark:bg-navy-700 text-navy-900 dark:text-white hover:bg-navy-200 dark:hover:bg-navy-600'
+                  }`}
+                >
+                  {p.cta}
+                </Link>
+              </motion.div>
             </motion.div>
           ))}
         </motion.div>

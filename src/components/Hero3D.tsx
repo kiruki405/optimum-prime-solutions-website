@@ -1,5 +1,6 @@
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import { useEffect, useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowRight, Download, MessageCircle } from 'lucide-react';
 import { useSite } from '../context/SiteContext';
 
@@ -193,21 +194,25 @@ export default function Hero3D() {
               transition={{ delay: 1, duration: 0.6 }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <motion.a
-                href="#contact"
+              <motion.div
                 whileHover={{ scale: 1.05, rotateZ: 2 }}
                 whileTap={{ scale: 0.95 }}
-                className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 px-8 py-4 text-sm font-bold text-white shadow-2xl shadow-blue-500/40 hover:shadow-blue-500/60 transition-all"
+                className="inline-flex"
                 style={{ perspective: "1200px" }}
               >
-                <span>Request Demo</span>
-                <motion.div
-                  animate={{ x: [0, 4, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
+                <Link
+                  to="/contact"
+                  className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 px-8 py-4 text-sm font-bold text-white shadow-2xl shadow-blue-500/40 hover:shadow-blue-500/60 transition-all"
                 >
-                  <ArrowRight className="h-5 w-5" />
-                </motion.div>
-              </motion.a>
+                  <span>Request Demo</span>
+                  <motion.div
+                    animate={{ x: [0, 4, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  >
+                    <ArrowRight className="h-5 w-5" />
+                  </motion.div>
+                </Link>
+              </motion.div>
 
               <motion.a
                 href="https://tallysolutions.com/ssa/download/?srsltid=AfmBOooMSwVbv50rP24g8n8IKqi92cdz3NFhSuqpfprrxIcgj7DZLXym"
