@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle, MessageCircle, Loader } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Send, CheckCircle, Loader } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 import { useSite } from '../context/SiteContext';
 import { useOnlineStatus } from './OfflineBanner';
 import { validateForm, getFieldError, type FormData, type ValidationError } from '../utils/validation';
@@ -169,9 +170,9 @@ export default function Contact() {
               href={`https://wa.me/${c.whatsapp}`}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex w-full items-center justify-center gap-3 rounded-full border border-red-600 bg-red-600 px-6 py-4 text-sm font-semibold text-white transition hover:bg-red-700"
+              className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-green-600 px-6 py-4 text-sm font-semibold text-white shadow-xl shadow-green-500/20 transition hover:bg-green-700"
             >
-              <MessageCircle className="h-4 w-4" /> Chat on WhatsApp
+              <WhatsAppIcon className="h-4 w-4 text-white" /> Chat on WhatsApp
             </a>
 
             <div className="overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 h-56">

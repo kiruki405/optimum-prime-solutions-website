@@ -57,7 +57,7 @@ export default function Blog() {
                   </div>
                   <h3 className="text-base font-bold text-navy-900 dark:text-white group-hover:text-yellow-600 transition-colors">{b.title}</h3>
                   <p className="mt-2 text-sm text-navy-600 dark:text-navy-600 line-clamp-2">{b.excerpt}</p>
-                  <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-yellow-600">
+                  <span className={`mt-4 inline-flex items-center gap-1 text-xs font-semibold ${b.youtubeUrl ? 'text-yellow-600' : 'text-blue-600'}`}>
                     {b.youtubeUrl ? 'Watch Video' : 'Read more'} 
                     <ArrowRight className="h-3 w-3 group-hover:translate-x-0.5 transition-transform"/>
                   </span>

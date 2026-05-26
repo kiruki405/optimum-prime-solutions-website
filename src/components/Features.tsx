@@ -30,21 +30,21 @@ export default function Features() {
   };
 
   return (
-    <section id="services" className="relative py-32 bg-gradient-to-b from-navy-900 via-navy-800 to-navy-700 dark:from-navy-900 dark:via-navy-800 dark:to-navy-800 overflow-hidden perspective">
+    <section id="services" className="relative py-32 bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900 overflow-hidden perspective">
       {/* Animated background elements */}
-      <div className="absolute -top-40 -right-40 w-80 h-80 bg-yellow-400/10 rounded-full blur-3xl opacity-30" />
-      <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl opacity-20" />
+      <div className="absolute -top-40 -right-40 w-80 h-80 bg-red-600/10 rounded-full blur-3xl opacity-30" />
+      <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-white/10 rounded-full blur-3xl opacity-20" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center max-w-3xl mx-auto mb-20">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center max-w-3xl mx-auto mb-20 font-sans">
           <motion.span animate={{ rotate: [0, 360] }} transition={{ duration: 3, repeat: Infinity }} className="inline-block">
-            <Sparkles className="h-5 w-5 text-yellow-600" />
+            <Sparkles className="h-5 w-5 text-red-500" />
           </motion.span>
-          <span className="inline-block rounded-full bg-yellow-400/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-yellow-600 ml-2">Our Services</span>
-          <h2 className="mt-6 text-4xl sm:text-5xl font-extrabold text-white dark:text-white leading-tight">
-            End-to-End <span className="bg-gradient-to-r from-yellow-400 to-blue-600 bg-clip-text text-transparent">Tally Prime</span> Solutions
+          <span className="inline-block rounded-full bg-red-600/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-red-300 ml-2">Our Services</span>
+          <h2 className="mt-6 text-4xl sm:text-5xl font-extrabold text-white leading-tight">
+            End-to-End <span className="bg-gradient-to-r from-red-500 to-slate-200 bg-clip-text text-transparent">TallyPrime</span> Solutions
           </h2>
-          <p className="mt-6 text-lg text-white dark:text-white leading-relaxed">
+          <p className="mt-6 text-lg text-slate-300 leading-relaxed">
             From installation to customization, we cover every aspect of your business management needs with expert support and proven results.
           </p>
         </motion.div>
@@ -64,7 +64,7 @@ export default function Features() {
                 key={svc.id}
                 variants={itemVariants}
                 whileHover={{ y: -12, rotateX: -5, transition: { duration: 0.3 } }}
-                className="group relative rounded-2xl border border-blue-500/30 dark:border-blue-400/30 bg-navy-800/60 dark:bg-navy-800/70 p-6 shadow-md hover:shadow-2xl hover:shadow-blue-400/30 transition-all duration-300 overflow-hidden"
+                className="group relative rounded-2xl border border-slate-800 bg-slate-950/95 p-6 shadow-xl shadow-black/20 hover:shadow-2xl hover:shadow-red-900/25 transition-all duration-300 overflow-hidden"
                 style={{ transformStyle: 'preserve-3d' }}
               >
                 {/* Gradient border on hover */}
@@ -86,22 +86,22 @@ export default function Features() {
 
                 {/* Icon background animation */}
                 <motion.div
-                  className="h-12 w-12 rounded-xl bg-gradient-to-br from-yellow-400/20 to-blue-500/10 flex items-center justify-center mb-4 relative overflow-hidden"
+                  className="h-12 w-12 rounded-xl bg-gradient-to-br from-red-600/20 to-white/10 flex items-center justify-center mb-4 relative overflow-hidden"
                   whileHover={{ scale: 1.15, rotate: 10 }}
                 >
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-yellow-400/30 to-transparent"
+                    className="absolute inset-0 bg-gradient-to-r from-red-500/30 to-transparent"
                     initial={{ x: '-100%' }}
                     whileHover={{ x: '100%' }}
                     transition={{ duration: 0.5 }}
                   />
-                  <Ic className="h-6 w-6 text-yellow-600 relative z-10" />
+                  <Ic className="h-6 w-6 text-red-400 relative z-10" />
                 </motion.div>
 
-                <h3 className="text-base font-bold text-white dark:text-white group-hover:text-yellow-400 transition-colors">
+                <h3 className="text-base font-bold text-white group-hover:text-red-300 transition-colors">
                   {svc.title}
                 </h3>
-                <p className="mt-3 text-sm text-gray-200 dark:text-gray-300 leading-relaxed line-clamp-2">
+                <p className="mt-3 text-sm text-slate-300 leading-relaxed line-clamp-2">
                   {svc.desc}
                 </p>
 
@@ -137,7 +137,7 @@ export default function Features() {
                     }
                   }}
                   whileHover={{ x: 4 }}
-                  className="mt-5 inline-flex items-center gap-1 text-xs font-semibold text-yellow-600 hover:text-yellow-600-dark transition group/link cursor-pointer"
+                  className="mt-5 inline-flex items-center gap-1 text-xs font-semibold text-red-300 hover:text-red-200 transition group/link cursor-pointer"
                 >
                   View on Tally
                   <motion.div whileHover={{ x: 2 }} className="group-hover/link:text-yellow-600-dark">

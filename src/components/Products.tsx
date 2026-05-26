@@ -24,25 +24,25 @@ export default function Products() {
   };
 
   return (
-    <section id="products" className="relative py-32 bg-gradient-to-b from-navy-50 to-white dark:from-navy-900/50 dark:to-navy-950 overflow-hidden">
+    <section id="products" className="relative py-32 bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900 overflow-hidden">
       {/* Background animation */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-yellow-400/10 rounded-full blur-3xl opacity-40 -mr-48 -mt-48" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl opacity-30 -ml-48 -mb-48" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-red-600/10 rounded-full blur-3xl opacity-40 -mr-48 -mt-48" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl opacity-30 -ml-48 -mb-48" />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 font-sans">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center max-w-4xl mx-auto mb-20"
         >
-          <span className="inline-block rounded-full bg-yellow-400/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-yellow-600">
+          <span className="inline-block rounded-full bg-red-600/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-red-300">
             Pricing Plans
           </span>
-          <h2 className="mt-6 text-4xl sm:text-5xl font-extrabold text-navy-900 dark:text-navy-900 leading-tight">
-            Choose Your <span className="bg-gradient-to-r from-yellow-400 to-blue-600 bg-clip-text text-transparent">TallyPrime License</span>
+          <h2 className="mt-6 text-4xl sm:text-5xl font-extrabold text-white leading-tight">
+            Choose Your <span className="bg-gradient-to-r from-red-500 to-slate-200 bg-clip-text text-transparent">TallyPrime License</span>
           </h2>
-          <p className="mt-6 text-lg text-navy-600 dark:text-navy-700 leading-relaxed">
+          <p className="mt-6 text-lg text-slate-300 leading-relaxed">
             Silver, Gold, Plus, Enterprise deployment, and TDL customization. Pick the plan that fits your business size and needs.
           </p>
         </motion.div>
@@ -61,8 +61,8 @@ export default function Products() {
               whileHover={{ y: p.popular ? 0 : -8 }}
               className={`group relative rounded-2xl border p-8 transition-all duration-300 overflow-hidden ${
                 p.popular
-                  ? 'border-yellow-300 bg-gradient-to-br from-yellow-400/10 to-blue-500/5 dark:from-yellow-400/20 dark:to-blue-500/10 shadow-2xl shadow-yellow-400/25 xl:scale-[1.05]'
-                  : 'border-navy-100 dark:border-navy-700 bg-white dark:bg-navy-800/50 hover:shadow-xl hover:shadow-yellow-400/10'
+                      ? 'border-red-500/30 bg-gradient-to-br from-red-600/15 to-slate-950/90 shadow-2xl shadow-red-900/25 xl:scale-[1.05]'
+                  : 'border-slate-800 bg-slate-950/95 hover:shadow-xl hover:shadow-black/20'
               }`}
             >
               {/* Badge */}
@@ -88,29 +88,29 @@ export default function Products() {
               {/* Icon */}
               <motion.div className="relative z-10 mb-6">
                 {p.edition === 'Silver' && (
-                  <div className="inline-block p-3 rounded-xl bg-blue-100 dark:bg-blue-900/30">
-                    <Zap className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                  <div className="inline-block p-3 rounded-xl bg-red-500/10">
+                    <Zap className="h-6 w-6 text-red-400" />
                   </div>
                 )}
                 {p.edition === 'Gold' && (
-                  <div className="inline-block p-3 rounded-xl bg-yellow-100 dark:bg-yellow-900/30">
-                    <Crown className="h-6 w-6 text-yellow-600 dark:text-yellow-400" />
+                  <div className="inline-block p-3 rounded-xl bg-red-600/10">
+                    <Crown className="h-6 w-6 text-red-300" />
                   </div>
                 )}
                 {['Plus', 'Enterprise'].some(e => p.edition.includes(e)) && (
-                  <div className="inline-block p-3 rounded-xl bg-purple-100 dark:bg-purple-900/30">
-                    <TrendingUp className="h-6 w-6 text-purple-600 dark:text-purple-400" />
+                  <div className="inline-block p-3 rounded-xl bg-slate-800/60">
+                    <TrendingUp className="h-6 w-6 text-slate-200" />
                   </div>
                 )}
               </motion.div>
 
               {/* Pricing */}
               <div className="relative z-10 text-center">
-                <p className="text-sm font-medium text-navy-500 dark:text-navy-600">{p.name}</p>
+                <p className="text-sm font-medium text-slate-400">{p.name}</p>
                 <motion.p
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
-                  className="text-2xl font-bold text-navy-900 dark:text-white mt-2"
+                  className="text-2xl font-bold text-white mt-2"
                 >
                   {p.edition}
                 </motion.p>
@@ -119,7 +119,7 @@ export default function Products() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   className="mt-4"
                 >
-                  <span className="text-3xl font-extrabold text-navy-900 dark:text-white">
+                  <span className="text-3xl font-extrabold text-white">
                     {p.price.includes('KES') && p.price.match(/\d+/)?.[0] ? (
                       <motion.span
                         key={p.price}
@@ -133,7 +133,7 @@ export default function Products() {
                     )}
                   </span>
                 </motion.div>
-                <p className="text-xs text-navy-500 dark:text-navy-600 mt-1">{p.period}</p>
+                <p className="text-xs text-slate-400 mt-1">{p.period}</p>
               </div>
 
               {/* Features */}
@@ -144,7 +144,7 @@ export default function Products() {
                     initial={{ opacity: 0, x: -10 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ delay: idx * 0.05 }}
-                    className="flex items-start gap-3 text-xs text-navy-700 dark:text-navy-300"
+                    className="flex items-start gap-3 text-xs text-slate-300"
                   >
                     <motion.div whileHover={{ scale: 1.2 }}>
                       <Check className="mt-0.5 h-4 w-4 text-yellow-600 shrink-0" />
@@ -164,8 +164,8 @@ export default function Products() {
                   to="/contact"
                   className={`block text-center rounded-xl py-3 text-sm font-semibold transition relative z-10 ${
                     p.popular
-                      ? 'bg-gradient-to-r from-yellow-400 to-blue-600 text-white hover:shadow-lg hover:shadow-yellow-400/40 shadow-lg shadow-yellow-400/25'
-                      : 'bg-navy-100 dark:bg-navy-700 text-navy-900 dark:text-white hover:bg-navy-200 dark:hover:bg-navy-600'
+                      ? 'bg-gradient-to-r from-red-600 to-red-500 text-white hover:shadow-lg hover:shadow-red-900/25 shadow-lg shadow-red-900/20'
+                      : 'bg-slate-800 text-white hover:bg-slate-700'
                   }`}
                 >
                   {p.cta}

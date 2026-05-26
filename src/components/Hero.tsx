@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle, Download, MessageCircle, Play, BarChart3, Sparkles, Zap } from 'lucide-react';
+import { ArrowRight, CheckCircle, Download, Play, BarChart3, Sparkles, Zap } from 'lucide-react';
+import TallyLogo from './TallyLogo';
+import WhatsAppIcon from './WhatsAppIcon';
 import { useSite } from '../context/SiteContext';
 
 export default function Hero() {
@@ -152,15 +154,15 @@ export default function Hero() {
                 href={`https://wa.me/${data.contact.whatsapp}?text=Hi%20Optimum%20Prime%20Solutions,%20I'm%20interested%20in%20TallyPrime`} 
                 target="_blank" 
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl border border-navy-300 bg-navy-50/80 px-6 py-4 text-sm font-bold text-navy-900 backdrop-blur-sm hover:bg-navy-100 transition-all"
-                whileHover={{ scale: 1.05, borderColor: "rgba(255, 215, 0, 0.5)" }}
+                className="inline-flex items-center gap-2 rounded-xl bg-[#075E54] px-6 py-4 text-sm font-bold text-white shadow-xl shadow-[#075E54]/30 hover:bg-[#0d7b61] transition-all"
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.6 }}
               >
                 <motion.div animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 2, repeat: Infinity }}>
-                  <MessageCircle className="h-4 w-4 text-yellow-600" />
+                  <WhatsAppIcon className="h-4 w-4 text-white" />
                 </motion.div>
                 Chat on WhatsApp
               </motion.a>
@@ -168,14 +170,15 @@ export default function Hero() {
                 href="https://tallysolutions.com/ssa/download/" 
                 target="_blank" 
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-4 text-sm font-bold text-white backdrop-blur-sm hover:bg-white/10 transition-all"
+                className="inline-flex items-center gap-3 rounded-xl border border-white/15 bg-white/5 px-6 py-4 text-sm font-bold text-white backdrop-blur-sm hover:bg-white/10 transition-all"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7, duration: 0.6 }}
               >
-                <Download className="h-4 w-4 text-yellow-600" /> Download Tally
+                <TallyLogo className="h-5 w-auto" />
+                Download TallyPrime
               </motion.a>
             </div>
 

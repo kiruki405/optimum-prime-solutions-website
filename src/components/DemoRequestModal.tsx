@@ -207,7 +207,7 @@ export default function DemoRequestModal({ isOpen, onClose, companyPhone, compan
                   disabled={state.submitting}
                   whileHover={{ scale: 0.98 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-full rounded-lg bg-gradient-to-r from-yellow-400 to-blue-600 px-6 py-3 font-semibold text-white shadow-lg shadow-yellow-400/30 hover:shadow-xl hover:shadow-yellow-400/40 transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="w-full rounded-lg bg-red-600 px-6 py-3 font-semibold text-white shadow-lg shadow-red-900/20 hover:bg-red-700 transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                   <Send className="h-4 w-4" />
                   {state.submitting ? 'Sending...' : 'Request Demo'}

@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { PhoneCall, Settings, Rocket, HeadphonesIcon } from 'lucide-react';
+import Logo from './Logo';
+import TallyLogo from './TallyLogo';
 
 const steps = [
   { icon: PhoneCall, num: '01', title: 'Free Consultation', desc: 'Tell us about your business. We\'ll analyze your needs and recommend the right Tally Prime solution — Silver, Gold, Plus, Enterprise, or Custom TDL.', color: 'from-yellow-400 to-blue-400' },
@@ -67,14 +69,19 @@ export default function HowItWorks() {
             <p className="mt-3 text-navy-300 max-w-xl mx-auto">
               Join 500+ Kenyan businesses already running smarter with Tally Prime. Get the full experience with a free, personalized demo.
             </p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link to="/contact" className="rounded-xl bg-yellow-500 px-8 py-4 text-sm font-bold text-white shadow-xl shadow-yellow-400/30 hover:bg-yellow-500-dark transition-all hover:scale-105">
                 Request Free Demo
               </Link>
               <a href="https://tallysolutions.com/ssa/download/" target="_blank" rel="noreferrer"
-                className="rounded-xl border border-white/20 bg-white/5 px-8 py-4 text-sm font-bold text-white backdrop-blur-sm hover:bg-white/10 transition-all">
+                className="inline-flex items-center gap-3 rounded-xl border border-white/20 bg-white/5 px-6 py-4 text-sm font-bold text-white backdrop-blur-sm hover:bg-white/10 transition-all">
+                <TallyLogo className="h-5 w-auto" />
                 Download TallyPrime
               </a>
+            </div>
+            <div className="mt-8 flex items-center justify-center gap-3 text-sm text-white/70">
+              <Logo className="h-6 w-auto text-white" variant="icon" />
+              <span>Powered by Optimum Prime Solutions</span>
             </div>
             <p className="mt-6 text-xs text-navy-600">
               ✓ No commitment required · ✓ Free installation help · ✓ KRA & eTIMS pre-configured
