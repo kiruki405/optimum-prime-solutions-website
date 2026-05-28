@@ -35,8 +35,9 @@ export default function Hero3D() {
                 href={`https://wa.me/${data.contact.whatsapp}?text=Hi,%20I%20need%20to%20talk%20to%20an%20expert`}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white text-slate-900 px-5 py-3 text-sm font-semibold hover:shadow-lg transition"
+                className="inline-flex items-center gap-2 rounded-xl bg-[#25D366] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[#25D366]/30 hover:bg-[#1DA851] transition"
               >
+                <WhatsAppIcon className="h-5 w-5 text-white" />
                 Talk to an Expert
               </a>
             </div>
@@ -55,14 +56,14 @@ export default function Hero3D() {
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }}>
-            <div className="relative overflow-hidden rounded-[2rem] border border-slate-800 bg-slate-950 shadow-soft">
-              <div className="bg-slate-950 p-6 text-white">
+            <div className="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-soft">
+              <div className="p-6 text-slate-950">
                 <div className="flex items-center justify-between gap-4">
                   <div>
-                    <p className="text-xs uppercase tracking-[0.35em] text-slate-400">Business overview</p>
+                    <p className="text-xs uppercase tracking-[0.35em] text-slate-500">Business overview</p>
                     <h2 className="mt-3 text-3xl font-semibold">Performance by metric</h2>
                   </div>
-                  <div className="rounded-3xl bg-white/10 px-4 py-2 text-xs text-white/80">Live</div>
+                  <div className="rounded-3xl bg-slate-100 px-4 py-2 text-xs text-slate-700">Live</div>
                 </div>
               </div>
 
@@ -73,26 +74,26 @@ export default function Hero3D() {
                   { label: 'Uptime', value: '99.9%', accent: 'bg-red-500' },
                 ].map((item) => (
                   <div key={item.label} className="space-y-2">
-                    <div className="flex items-center justify-between text-sm text-slate-300">
+                    <div className="flex items-center justify-between text-sm text-slate-700">
                       <span>{item.label}</span>
-                      <span className="font-semibold text-white">{item.value}</span>
+                      <span className="font-semibold text-slate-950">{item.value}</span>
                     </div>
-                    <div className="h-3 rounded-full bg-slate-800">
+                    <div className="h-3 rounded-full bg-slate-200">
                       <div className={`h-full rounded-full ${item.accent}`} style={{ width: item.value }} />
                     </div>
                   </div>
                 ))}
               </div>
 
-              <div className="border-t border-slate-800 bg-slate-950 p-6">
+              <div className="border-t border-slate-200 bg-slate-50 p-6">
                 <div className="grid gap-4 sm:grid-cols-2">
-                  <div className="rounded-3xl border border-slate-800 bg-slate-950 p-5">
-                    <p className="text-xs uppercase tracking-[0.3em] text-slate-400">Active users</p>
-                    <h3 className="mt-3 text-2xl font-semibold text-white">500+</h3>
+                  <div className="rounded-3xl border border-slate-200 bg-white p-5">
+                    <p className="text-xs uppercase tracking-[0.3em] text-slate-500">Active users</p>
+                    <h3 className="mt-3 text-2xl font-semibold text-slate-950">500+</h3>
                   </div>
-                  <div className="rounded-3xl border border-slate-800 bg-slate-950 p-5">
-                    <p className="text-xs uppercase tracking-[0.3em] text-slate-400">Response time</p>
-                    <h3 className="mt-3 text-2xl font-semibold text-white">1 hr</h3>
+                  <div className="rounded-3xl border border-slate-200 bg-white p-5">
+                    <p className="text-xs uppercase tracking-[0.3em] text-slate-500">Response time</p>
+                    <h3 className="mt-3 text-2xl font-semibold text-slate-950">1 hr</h3>
                   </div>
                 </div>
               </div>

@@ -34,7 +34,7 @@ export default function Features() {
       {/* Animated background elements */}
       <div className="absolute -top-40 -right-40 w-80 h-80 bg-sky-400/20 rounded-full blur-3xl opacity-40" />
       <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-white/80 rounded-full blur-3xl opacity-30" />
-      <div className="absolute left-1/2 top-16 -translate-x-1/2 h-72 w-72 rounded-full bg-slate-950/10 blur-3xl" />
+      <div className="absolute left-1/2 top-16 -translate-x-1/2 h-72 w-72 rounded-full bg-slate-300/10 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center max-w-3xl mx-auto mb-20 font-sans">
@@ -68,7 +68,7 @@ export default function Features() {
                 whileHover={{ y: -12, rotateX: -5, transition: { duration: 0.3 } }}
                 className={`group relative rounded-[2rem] border p-6 transition-all duration-300 overflow-hidden ${
                   isHeroCard
-                    ? 'border-slate-800 bg-slate-950 text-white shadow-[0_30px_80px_-40px_rgba(15,23,42,0.45)]'
+                    ? 'border-slate-200 bg-white text-slate-950 shadow-[0_24px_60px_-30px_rgba(15,23,42,0.12)] hover:shadow-2xl hover:shadow-slate-300/30'
                     : 'border-slate-200 bg-white shadow-[0_24px_60px_-30px_rgba(15,23,42,0.15)] hover:shadow-2xl hover:shadow-slate-300/30'
                 }`}
                 style={{ transformStyle: 'preserve-3d' }}
@@ -104,10 +104,10 @@ export default function Features() {
                 <Ic className="h-6 w-6 text-sky-600 relative z-10" />
               </motion.div>
 
-                <h3 className={`text-base font-bold flex items-center gap-2 ${isHeroCard ? 'text-white' : 'text-slate-900'} ${!isHeroCard ? 'group-hover:text-sky-600' : ''}`}>
+                <h3 className={`text-base font-bold flex items-center gap-2 ${isHeroCard ? 'text-slate-950' : 'text-slate-900'} ${!isHeroCard ? 'group-hover:text-sky-600' : ''}`}>
                   {svc.title}
                 </h3>
-                <p className={`mt-3 text-sm leading-relaxed line-clamp-2 ${isHeroCard ? 'text-slate-300' : 'text-slate-600'}`}>
+                <p className={`mt-3 text-sm leading-relaxed line-clamp-2 ${isHeroCard ? 'text-slate-700' : 'text-slate-600'}`}>
                   {svc.desc}
                 </p>
 
@@ -137,7 +137,7 @@ export default function Features() {
                   target="_blank"
                   rel="noreferrer"
                   whileHover={{ y: -2 }}
-                  className="mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-slate-950 px-4 py-2 text-sm font-semibold text-white shadow-xl shadow-slate-950/20 transition duration-300 hover:bg-slate-800"
+                  className="mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-sky-600 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-sky-500/20 transition duration-300 hover:bg-sky-700"
                 >
                   <ExternalLink className="h-4 w-4" />
                   View on Tally

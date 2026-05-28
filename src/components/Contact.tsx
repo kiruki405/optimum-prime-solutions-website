@@ -129,20 +129,20 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-sky-50 to-white py-24">
-      <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-sky-100/60 to-transparent" />
+    <section id="contact" className="relative overflow-hidden bg-slate-50 py-24">
+      <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-sky-200/40 to-transparent" />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-5 lg:gap-12">
-          <div className="lg:col-span-2 space-y-6 overflow-hidden rounded-[2rem] bg-gradient-to-br from-sky-600 via-cyan-500 to-slate-900 p-8 shadow-2xl ring-1 ring-slate-200/30 text-white">
+          <div className="lg:col-span-2 space-y-6 overflow-hidden rounded-[2rem] bg-white border border-slate-200 p-8 shadow-xl text-slate-950">
             <div className="space-y-4">
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-white/90">
+              <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-slate-700">
                 Contact
               </span>
               <div>
-                <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                <h2 className="text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
                   Request a demo with the team that helps businesses grow faster.
                 </h2>
-                <p className="mt-4 text-base text-slate-100">
+                <p className="mt-4 text-base text-slate-600">
                   Complete the form and a specialist will contact you with a custom TallyPrime plan for your organization.
                 </p>
               </div>
@@ -150,15 +150,15 @@ export default function Contact() {
 
             <div className="space-y-4">
               {info.map(({ icon: Icon, title, lines }) => (
-                <div key={title} className="rounded-3xl border border-white/10 bg-white/10 p-5 shadow-lg shadow-slate-950/10 backdrop-blur-sm">
-                  <div className="flex items-center gap-3 text-white">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-3xl bg-white/10 text-white">
+                <div key={title} className="rounded-3xl border border-slate-200 bg-slate-50 p-5 shadow-sm">
+                  <div className="flex items-center gap-3 text-slate-950">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-3xl bg-sky-100 text-sky-700">
                       <Icon className="h-5 w-5" />
                     </div>
                     <div>
-                      <p className="text-sm font-semibold text-white">{title}</p>
+                      <p className="text-sm font-semibold text-slate-950">{title}</p>
                       {lines.map((line) => (
-                        <p key={line} className="mt-1 text-sm text-slate-200">{line}</p>
+                        <p key={line} className="mt-1 text-sm text-slate-600">{line}</p>
                       ))}
                     </div>
                   </div>
@@ -170,12 +170,12 @@ export default function Contact() {
               href={`https://wa.me/${c.whatsapp}`}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-white px-6 py-4 text-sm font-semibold text-slate-900 shadow-xl shadow-white/30 transition hover:bg-slate-100"
+              className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#25D366] px-6 py-4 text-sm font-semibold text-white shadow-xl shadow-[#25D366]/30 transition hover:bg-[#1DA851]"
             >
-              <WhatsAppIcon className="h-4 w-4" /> Chat on WhatsApp
+              <WhatsAppIcon className="h-4 w-4 text-white" /> Chat on WhatsApp
             </a>
 
-            <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/10 h-56">
+            <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white h-56">
               <iframe src={c.mapUrl} width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" title="Location" />
             </div>
           </div>
@@ -184,10 +184,10 @@ export default function Contact() {
             <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-xl text-slate-950">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                 <div>
-                  <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-400">Demo request</p>
+                  <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">Demo request</p>
                   <h3 className="mt-3 text-2xl font-bold text-slate-950">Let's build your next TallyPrime solution.</h3>
                 </div>
-                <div className="rounded-full border border-slate-200 bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-700">
+                <div className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700">
                   {isOnline ? 'Online' : 'Offline'}
                 </div>
               </div>
@@ -200,7 +200,7 @@ export default function Contact() {
 
               {ok ? (
                 <div className="mt-8 rounded-[1.5rem] border border-slate-200 bg-slate-50 p-10 text-center">
-                  <CheckCircle className="mx-auto h-12 w-12 text-slate-950" />
+                  <CheckCircle className="mx-auto h-12 w-12 text-sky-500" />
                   <h4 className="mt-4 text-xl font-semibold text-slate-950">Request submitted</h4>
                   <p className="mt-2 text-sm text-slate-600">Our team will get back to you within 24 hours.</p>
                 </div>
@@ -218,8 +218,8 @@ export default function Contact() {
                     ].map((field) => {
                       const error = getFieldError(errors, field.k);
                       return (
-                        <label key={field.k} className="block text-sm text-slate-300">
-                          <span className="block mb-2 font-semibold text-slate-700">{field.l}</span>
+                        <label key={field.k} className="block text-sm text-slate-200">
+                          <span className="block mb-2 font-semibold text-slate-100">{field.l}</span>
                           <input
                             type={field.t}
                             value={(form as Record<string, string>)[field.k]}
@@ -227,17 +227,17 @@ export default function Contact() {
                             placeholder={field.p}
                             required={field.l.includes('*')}
                             className={`w-full rounded-3xl border px-4 py-3 text-sm outline-none transition ${
-                              error ? 'border-red-500/70 bg-slate-100 text-slate-900 placeholder:text-slate-500' : 'border-slate-200 bg-slate-50 text-slate-900 placeholder:text-slate-500'
+                              error ? 'border-red-500/70 bg-slate-50 text-slate-950 placeholder:text-red-400' : 'border-slate-200 bg-slate-50 text-slate-950 placeholder:text-slate-500'
                             }`}
                           />
-                          {error && <p className="mt-2 text-xs text-red-600">{error}</p>}
+                          {error && <p className="mt-2 text-xs text-red-400">{error}</p>}
                         </label>
                       );
                     })}
                   </div>
 
-                  <label className="block text-sm text-slate-300">
-                    <span className="block mb-2 font-semibold text-slate-200">Message</span>
+                  <label className="block text-sm text-slate-200">
+                    <span className="block mb-2 font-semibold text-slate-100">Message</span>
                     <textarea
                       name="message"
                       value={form.message}
@@ -245,10 +245,10 @@ export default function Contact() {
                       rows={4}
                       placeholder="Tell us about your needs... (optional)"
                       className={`w-full rounded-3xl border px-4 py-3 text-sm outline-none transition ${
-                        getFieldError(errors, 'message') ? 'border-red-500/70 bg-slate-100 text-slate-900 placeholder:text-slate-500' : 'border-slate-200 bg-slate-50 text-slate-900 placeholder:text-slate-500'
+                        getFieldError(errors, 'message') ? 'border-red-500/70 bg-slate-50 text-slate-950 placeholder:text-red-400' : 'border-slate-200 bg-slate-50 text-slate-950 placeholder:text-slate-500'
                       }`}
                     />
-                    {getFieldError(errors, 'message') && <p className="mt-2 text-xs text-red-600">{getFieldError(errors, 'message')}</p>}
+                    {getFieldError(errors, 'message') && <p className="mt-2 text-xs text-red-400">{getFieldError(errors, 'message')}</p>}
                   </label>
 
                   <button

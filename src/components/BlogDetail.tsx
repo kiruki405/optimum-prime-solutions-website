@@ -45,7 +45,7 @@ export default function BlogDetail({ blogId, onClose }: Props) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       onClick={onClose}
-      className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4"
+      className="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm flex items-center justify-center p-4"
     >
       <motion.div
         initial={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -110,7 +110,7 @@ export default function BlogDetail({ blogId, onClose }: Props) {
               transition={{ delay: 0.2 }}
               className="mb-8"
             >
-              <div className="relative w-full bg-black rounded-xl overflow-hidden" style={{ paddingBottom: '56.25%' }}>
+              <div className="relative w-full bg-slate-950 rounded-xl overflow-hidden" style={{ paddingBottom: '56.25%' }}>
                 <iframe
                   src={embedUrl}
                   title={blog.title}

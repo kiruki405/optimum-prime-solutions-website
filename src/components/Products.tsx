@@ -61,8 +61,8 @@ export default function Products() {
               whileHover={{ y: p.popular ? 0 : -8 }}
               className={`group relative rounded-2xl border p-8 transition-all duration-300 overflow-hidden ${
                 p.popular
-                  ? 'border-red-500/40 bg-gradient-to-br from-red-700 via-red-600 to-red-700 shadow-2xl shadow-red-900/40 xl:scale-[1.05] text-white'
-                  : 'border-slate-800 bg-slate-950/95 hover:shadow-xl hover:shadow-black/20'
+                  ? 'border-red-500/40 bg-gradient-to-br from-red-50 via-white to-red-50 shadow-xl shadow-red-900/10 xl:scale-[1.05] text-slate-950'
+                  : 'border-slate-200 bg-white shadow-xl hover:shadow-slate-300/30'
               }`}
             >
               {/* Badge */}
@@ -98,8 +98,8 @@ export default function Products() {
                   </div>
                 )}
                 {['Plus', 'Enterprise'].some(e => p.edition.includes(e)) && (
-                  <div className="inline-block p-3 rounded-xl bg-slate-800/60">
-                    <TrendingUp className="h-6 w-6 text-slate-200" />
+                  <div className="inline-block p-3 rounded-xl bg-slate-200/80">
+                    <TrendingUp className="h-6 w-6 text-slate-700" />
                   </div>
                 )}
               </motion.div>
@@ -110,7 +110,7 @@ export default function Products() {
                 <motion.p
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
-                  className="text-2xl font-bold text-white mt-2"
+                  className={`text-2xl font-bold mt-2 ${p.popular ? 'text-slate-950' : 'text-slate-900'}`}
                 >
                   {p.edition}
                 </motion.p>
@@ -119,7 +119,7 @@ export default function Products() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   className="mt-4"
                 >
-                  <span className="text-3xl font-extrabold text-white">
+                  <span className={`text-3xl font-extrabold ${p.popular ? 'text-slate-950' : 'text-slate-900'}`}>
                     {p.price.includes('KES') && p.price.match(/\d+/)?.[0] ? (
                       <motion.span
                         key={p.price}
@@ -144,7 +144,7 @@ export default function Products() {
                     initial={{ opacity: 0, x: -10 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ delay: idx * 0.05 }}
-                    className="flex items-start gap-3 text-xs text-slate-300"
+                    className={`flex items-start gap-3 text-xs ${p.popular ? 'text-white' : 'text-slate-600'}`}
                   >
                     <motion.div whileHover={{ scale: 1.2 }}>
                       <Check className="mt-0.5 h-4 w-4 text-yellow-600 shrink-0" />
@@ -164,7 +164,7 @@ export default function Products() {
                   to="/contact"
                   className={`block text-center rounded-xl py-3 text-sm font-semibold transition relative z-10 ${
                     p.popular
-                      ? 'bg-slate-900 text-white hover:bg-slate-800 shadow-lg shadow-slate-900/20'
+                      ? 'bg-red-600 text-white hover:bg-red-700 shadow-lg shadow-red-500/20'
                       : 'bg-sky-600 text-white hover:bg-sky-500'
                   }`}
                 >

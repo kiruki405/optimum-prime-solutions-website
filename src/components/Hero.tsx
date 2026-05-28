@@ -154,7 +154,7 @@ export default function Hero() {
                 href={`https://wa.me/${data.contact.whatsapp}?text=Hi%20Optimum%20Prime%20Solutions,%20I'm%20interested%20in%20TallyPrime`} 
                 target="_blank" 
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl bg-[#075E54] px-6 py-4 text-sm font-bold text-white shadow-xl shadow-[#075E54]/30 hover:bg-[#0d7b61] transition-all"
+                className="inline-flex items-center gap-2 rounded-xl bg-[#25D366] px-6 py-4 text-sm font-bold text-white shadow-xl shadow-[#25D366]/30 hover:bg-[#1DA851] transition-all"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
                 initial={{ opacity: 0, y: 20 }}
