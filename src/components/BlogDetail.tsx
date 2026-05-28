@@ -2,6 +2,12 @@ import { motion } from 'framer-motion';
 import { X, Calendar, Clock, ArrowLeft } from 'lucide-react';
 import { useSite } from '../context/SiteContext';
 
+const categoryStyles: Record<string, { badge: string; shadow: string }> = {
+  Insights: { badge: 'from-red-500 to-orange-400 text-white', shadow: 'shadow-red-500/20' },
+  Tutorial: { badge: 'from-emerald-500 to-teal-400 text-white', shadow: 'shadow-emerald-500/20' },
+  Comparison: { badge: 'from-sky-600 to-indigo-500 text-white', shadow: 'shadow-sky-500/20' },
+};
+
 interface Props {
   blogId: string;
   onClose: () => void;
@@ -81,7 +87,7 @@ export default function BlogDetail({ blogId, onClose }: Props) {
               <Clock className="h-4 w-4" />
               {blog.readTime}
             </span>
-            <span className="rounded-full bg-navy-100 dark:bg-navy-800 px-3 py-1 text-xs font-semibold text-navy-700 dark:text-navy-300">
+            <span className={`rounded-full bg-gradient-to-r ${categoryStyles[blog.category]?.badge || 'from-slate-100 to-slate-200 text-slate-700'} px-3 py-1 text-xs font-semibold uppercase tracking-wide shadow-lg ${categoryStyles[blog.category]?.shadow || 'shadow-slate-200/30'}`}>
               {blog.category}
             </span>
           </div>

@@ -24,10 +24,10 @@ export default function Products() {
   };
 
   return (
-    <section id="products" className="relative py-32 bg-gradient-to-br from-red-700 via-red-600 to-red-700 overflow-hidden">
+    <section id="products" className="relative py-32 bg-gradient-to-br from-slate-100 via-slate-50 to-sky-100 overflow-hidden text-slate-900">
       {/* Background animation */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-red-500/30 rounded-full blur-3xl opacity-70 -mr-48 -mt-48" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-red-700/30 rounded-full blur-3xl opacity-40 -ml-48 -mb-48" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-sky-200/50 rounded-full blur-3xl opacity-40 -mr-48 -mt-48" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/80 rounded-full blur-3xl opacity-30 -ml-48 -mb-48" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 font-sans">
         <motion.div
@@ -36,13 +36,13 @@ export default function Products() {
           viewport={{ once: true }}
           className="text-center max-w-4xl mx-auto mb-20"
         >
-          <span className="inline-block rounded-full bg-blue-900/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-blue-300">
+          <span className="inline-block rounded-full bg-gradient-to-r from-sky-500 to-cyan-500 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white shadow-lg shadow-sky-300/20">
             Services Overview
           </span>
-          <h2 className="mt-6 text-4xl sm:text-5xl font-extrabold text-white leading-tight">
+          <h2 className="mt-6 text-4xl sm:text-5xl font-extrabold text-slate-900 leading-tight">
             Solutions for Systems, Cloud & Scalable Operations
           </h2>
-          <p className="mt-6 text-lg text-slate-300 leading-relaxed">
+          <p className="mt-6 text-lg text-slate-600 leading-relaxed">
             From implementation and hosting to process optimization and reporting, choose the combination of services that delivers operational traction and growth for your business.
           </p>
         </motion.div>
@@ -164,8 +164,8 @@ export default function Products() {
                   to="/contact"
                   className={`block text-center rounded-xl py-3 text-sm font-semibold transition relative z-10 ${
                     p.popular
-                      ? 'bg-gradient-to-r from-red-600 to-red-500 text-white hover:shadow-lg hover:shadow-red-900/25 shadow-lg shadow-red-900/20'
-                      : 'bg-slate-800 text-white hover:bg-slate-700'
+                      ? 'bg-slate-900 text-white hover:bg-slate-800 shadow-lg shadow-slate-900/20'
+                      : 'bg-sky-600 text-white hover:bg-sky-500'
                   }`}
                 >
                   {p.cta}

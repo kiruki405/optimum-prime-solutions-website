@@ -23,7 +23,7 @@ function getBotResponse(q: string, d: SiteData): Msg {
   const responses = [
     {
       pattern: /^(hi|hello|hey|jambo|habari|sasa|hallo)/,
-      message: `Hello! 👋 Welcome to ${d.company.name}. I'm here to help you with:\n\n✦ Our services & solutions\n✦ Tally Prime pricing\n✦ Request a demo\n✦ KRA compliance setup\n✦ Contact information`,
+      message: `Hello! 👋 Welcome to ${d.company.name}. I can help you with:\n\n✦ Our services & solutions\n✦ Pricing, editions & integrations\n✦ KRA compliance and payroll\n✦ Remote access and training\n✦ Demo requests and FAQs`,
     },
     {
       pattern: /demo|trial|test|try/,
@@ -37,6 +37,26 @@ function getBotResponse(q: string, d: SiteData): Msg {
     {
       pattern: /service|what (do|can) you|offer|provide/,
       message: `🚀 **Our Services:**\n\n${d.services.map((s) => `• **${s.title}**: ${s.desc}`).join('\n')}\n\nWhich service interests you?`,
+    },
+    {
+      pattern: /edition|compare|silver|gold|plus|enterprise/,
+      message: `💎 **Tally Prime Editions:**\n\n• **Silver**: Single user accounting, ideal for small businesses.\n• **Gold**: Multi-user access with remote login.\n• **Plus / Enterprise**: Scalable operations, branch workflows, and cloud-ready deployment.\n\nI can recommend the best edition for your business.`,
+    },
+    {
+      pattern: /integrat|api|pos|bank|third-party|payment/,
+      message: `🔗 **Integrations:**\n\nWe connect Tally Prime with POS, banking, payment, and other systems using custom TDL and supported APIs. This keeps accounting, inventory, and bank feeds synchronized.\n\nTell me which systems you want to link.`,
+    },
+    {
+      pattern: /train|training|staff|users|onboard/,
+      message: `👥 **Training & Onboarding**\n\nWe offer practical training for finance, operations, and management teams. Training can be on-site or remote and covers Tally Prime workflows, reporting, payroll, and compliance.\n\nAsk for a training plan that fits your team.`,
+    },
+    {
+      pattern: /support package|support plan|after-sales|maintenance|support options/,
+      message: `🛠️ **Support Plans**\n\nChoose from remote support, health checks, software updates, and on-site visits. Our response time is typically under 1 hour for urgent issues.\n\nWe can set up a support plan suited to your business size.`,
+    },
+    {
+      pattern: /remote|cloud|access|online|work anywhere|multi-branch/,
+      message: `☁️ **Remote Access & Cloud**\n\nTally Prime Gold supports secure remote access. We also offer cloud hosting options so your team can access centralized Tally Prime data from anywhere.\n\nPerfect for multi-branch and remote teams.`,
     },
     {
       pattern: /kra|tax|vat|etims|compliance|e-filing/,
@@ -114,7 +134,7 @@ function FormatMessage({ text }: { text: string }) {
         const parts = line.split(/(\*\*[^*]+\*\*)/g);
         const formatted = parts.map((part, j) =>
           part.startsWith('**') && part.endsWith('**') ? (
-            <strong key={j} className="font-semibold text-navy-900 dark:text-white">
+            <strong key={j} className="font-semibold text-slate-900 dark:text-white">
               {part.slice(2, -2)}
             </strong>
           ) : (
@@ -149,7 +169,7 @@ export default function Chatbot() {
     {
       id: '0',
       role: 'bot',
-      text: `👋 Hello! I'm the Optimum Prime Assistant. I'm here to help with:\n\n✦ Tally Prime solutions\n✦ Pricing & editions\n✦ KRA compliance setup\n✦ Service details\n✦ Demo requests\n\nHow can I help you today?`,
+      text: `👋 Hello! I'm the Optimum Prime Assistant. I can help with:\n\n✦ Tally Prime solutions & services\n✦ Pricing, editions & integrations\n✦ KRA compliance and payroll\n✦ Remote access and training\n✦ Demo requests and FAQs\n\nAsk me anything or select a quick question.`,
       time: getTime(),
     },
   ]);
@@ -233,16 +253,16 @@ export default function Chatbot() {
               min
                 ? 'bottom-6 right-6 h-14 w-72'
                 : 'bottom-0 right-0 sm:bottom-6 sm:right-6 h-[100dvh] w-full sm:h-[600px] sm:w-[420px]'
-            } flex flex-col overflow-hidden border border-navy-200 dark:border-navy-700 bg-white dark:bg-navy-900 shadow-2xl sm:rounded-2xl`}
+            } flex flex-col overflow-hidden border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950 shadow-2xl sm:rounded-2xl`}
           >
             {/* Header */}
-            <div className="flex items-center justify-between bg-gradient-to-r from-navy-900 to-navy-800 px-4 py-3 shrink-0">
+            <div className="flex items-center justify-between bg-gradient-to-r from-slate-900 to-slate-700 px-4 py-3 shrink-0">
               <div className="flex items-center gap-2.5">
                 <div className="relative h-8 w-8 rounded-full bg-white/10 flex items-center justify-center">
                   <motion.div animate={{ rotate: 360 }} transition={{ duration: 3, repeat: Infinity }}>
                     <Bot className="h-4 w-4 text-sky-300" />
                   </motion.div>
-                  <span className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full border-2 border-navy-900 bg-green-400" />
+                  <span className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full border-2 border-slate-950 bg-green-400" />
                 </div>
                 {!min && (
                   <div>
@@ -287,7 +307,7 @@ export default function Chatbot() {
             {!min && (
               <>
                 {/* Messages */}
-                <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3 bg-navy-50 dark:bg-navy-950">
+                <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3 bg-slate-100 dark:bg-slate-950">
                   {msgs.map((m) => (
                     <motion.div
                       key={m.id}
@@ -298,7 +318,7 @@ export default function Chatbot() {
                       <div
                         className={`h-7 w-7 rounded-full flex items-center justify-center shrink-0 ${
                           m.role === 'bot'
-                            ? 'bg-navy-800'
+                            ? 'bg-slate-900'
                             : 'bg-gradient-to-br from-sky-500 to-blue-600'
                         }`}
                       >
@@ -311,7 +331,7 @@ export default function Chatbot() {
                       <div
                         className={`max-w-[80%] rounded-2xl px-3.5 py-2.5 text-[13px] leading-relaxed ${
                           m.role === 'bot'
-                            ? 'rounded-tl-sm bg-white dark:bg-navy-800 text-navy-700 dark:text-navy-200 shadow-sm border border-navy-100 dark:border-navy-700'
+                            ? 'rounded-tl-sm bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 shadow-sm border border-slate-100 dark:border-slate-700'
                             : 'rounded-tr-sm bg-gradient-to-br from-yellow-400 to-blue-600 text-white'
                         }`}
                       >
@@ -331,7 +351,7 @@ export default function Chatbot() {
                         <p
                           className={`mt-1 text-[9px] ${
                             m.role === 'bot'
-                              ? 'text-navy-600'
+                              ? 'text-slate-600'
                               : 'text-white/40'
                           }`}
                         >
@@ -342,17 +362,17 @@ export default function Chatbot() {
                   ))}
                   {typing && (
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex gap-2">
-                      <div className="h-7 w-7 rounded-full bg-navy-800 flex items-center justify-center">
+                      <div className="h-7 w-7 rounded-full bg-slate-900 flex items-center justify-center">
                         <Bot className="h-3.5 w-3.5 text-yellow-600" />
                       </div>
-                      <div className="rounded-2xl rounded-tl-sm bg-white dark:bg-navy-800 px-4 py-3 shadow-sm border border-navy-100 dark:border-navy-700">
+                      <div className="rounded-2xl rounded-tl-sm bg-white dark:bg-slate-900 px-4 py-3 shadow-sm border border-slate-100 dark:border-slate-700">
                         <div className="flex gap-1">
                           {[0, 1, 2].map((i) => (
                             <motion.span
                               key={i}
                               animate={{ y: [0, -4, 0] }}
                               transition={{ delay: i * 0.15, duration: 0.6, repeat: Infinity }}
-                              className="h-1.5 w-1.5 rounded-full bg-navy-400"
+                              className="h-1.5 w-1.5 rounded-full bg-slate-400"
                             />
                           ))}
                         </div>
@@ -364,8 +384,8 @@ export default function Chatbot() {
 
                 {/* Quick Questions */}
                 {msgs.length <= 2 && (
-                  <div className="border-t border-navy-100 dark:border-navy-800 bg-white dark:bg-navy-900 px-3 py-2 shrink-0">
-                    <p className="mb-1.5 text-[9px] font-medium uppercase tracking-wider text-navy-600">
+                  <div className="border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950 px-3 py-2 shrink-0">
+                    <p className="mb-1.5 text-[9px] font-medium uppercase tracking-wider text-slate-600">
                       Quick questions
                     </p>
                     <div className="flex flex-wrap gap-1">
@@ -373,8 +393,8 @@ export default function Chatbot() {
                         'Services & pricing',
                         'Request a demo',
                         'KRA compliance',
-                        'Contact info',
-                        'Payroll setup',
+                        'Remote access',
+                        'Training options',
                       ].map((s) => (
                         <motion.button
                           key={s}
@@ -391,12 +411,12 @@ export default function Chatbot() {
                 )}
 
                 {/* Input */}
-                <form onSubmit={(e) => {e.preventDefault(); send(input);}} className="flex items-center gap-2 border-t border-navy-100 dark:border-navy-800 bg-white dark:bg-navy-900 px-3 py-2.5 shrink-0">
+                <form onSubmit={(e) => {e.preventDefault(); send(input);}} className="flex items-center gap-2 border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950 px-3 py-2.5 shrink-0">
                   <input
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     placeholder="Type a message..."
-                    className="flex-1 rounded-xl border border-navy-200 dark:border-navy-700 bg-navy-50 dark:bg-navy-800 px-3.5 py-2 text-sm outline-none focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30 text-navy-900 dark:text-white placeholder-navy-500 dark:placeholder-navy-400"
+                    className="flex-1 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-900 px-3.5 py-2 text-sm outline-none focus:border-sky-400 focus:ring-2 focus:ring-sky-400/30 text-slate-950 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 caret-sky-600"
                   />
                   <motion.button
                     type="submit"

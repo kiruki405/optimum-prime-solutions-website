@@ -4,6 +4,12 @@ import { useState } from 'react';
 import { useSite } from '../context/SiteContext';
 import BlogDetail from './BlogDetail';
 
+const categoryStyles: Record<string, { badge: string; shadow: string }> = {
+  Insights: { badge: 'from-red-500 to-orange-400 text-white', shadow: 'shadow-red-500/20' },
+  Tutorial: { badge: 'from-emerald-500 to-teal-400 text-white', shadow: 'shadow-emerald-500/20' },
+  Comparison: { badge: 'from-sky-600 to-indigo-500 text-white', shadow: 'shadow-sky-500/20' },
+};
+
 export default function Blog() {
   const { data } = useSite();
   const [selectedBlogId, setSelectedBlogId] = useState<string | null>(null);
@@ -12,11 +18,12 @@ export default function Blog() {
 
   return (
     <>
-      <section id="blog" className="py-24 bg-navy-50/50 dark:bg-navy-900/50">
+      <section id="blog" className="py-24 bg-gradient-to-br from-slate-100 via-slate-50 to-sky-100 text-slate-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div initial={{opacity:0,y:20}} whileInView={{opacity:1,y:0}} viewport={{once:true}} className="text-center max-w-3xl mx-auto">
-            <span className="inline-block rounded-full bg-red-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-red-700">Blog & Insights</span>
-            <h2 className="mt-4 text-3xl sm:text-4xl font-bold text-navy-900 dark:text-white">Latest From Our Blog</h2>
+            <span className="inline-block rounded-full bg-gradient-to-r from-red-500 to-orange-400 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white shadow-lg shadow-red-500/10">Blog & Insights</span>
+            <h2 className="mt-4 text-3xl sm:text-4xl font-bold text-slate-900">Latest From Our Blog</h2>
+            <p className="mt-4 text-sm text-slate-600">Read practical guidance, compliance tips, and Tally Prime success stories designed to help your business grow faster.</p>
           </motion.div>
           
           <div className="mt-16 grid md:grid-cols-3 gap-8">
@@ -28,38 +35,45 @@ export default function Blog() {
                 viewport={{once:true}} 
                 transition={{delay:i*0.1}}
                 onClick={() => setSelectedBlogId(b.id)}
-                className="group rounded-2xl border border-navy-100 dark:border-navy-700 bg-white dark:bg-navy-800/50 overflow-hidden hover:shadow-xl transition-all cursor-pointer"
+                className="group rounded-[2rem] border border-slate-200 bg-white shadow-[0_20px_60px_-20px_rgba(15,23,42,0.15)] overflow-hidden hover:-translate-y-1 hover:shadow-2xl transition-all cursor-pointer"
               >
-                {/* Image/Video Thumbnail Area */}
-                <div className="h-44 bg-gradient-to-br from-navy-800 to-navy-900 flex items-center justify-center relative overflow-hidden">
+                <div className="h-44 bg-gradient-to-br from-sky-500 via-cyan-400 to-indigo-600 flex items-center justify-center relative overflow-hidden">
+                  <span
+                    className={`absolute top-4 left-4 inline-flex items-center rounded-full bg-gradient-to-r ${categoryStyles[b.category]?.badge || 'from-slate-200 to-slate-300 text-slate-700'} px-3 py-1 text-[11px] font-semibold uppercase tracking-wide shadow-lg ${categoryStyles[b.category]?.shadow || 'shadow-slate-200/30'}`}
+                  >
+                    {b.category}
+                  </span>
                   {b.youtubeUrl ? (
                     <>
-                      <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors flex items-center justify-center">
+                      <div className="absolute inset-0 bg-slate-950/20 group-hover:bg-slate-950/30 transition-colors flex items-center justify-center">
                         <motion.div
-                          whileHover={{ scale: 1.2 }}
-                          className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center"
+                          whileHover={{ scale: 1.1 }}
+                          className="w-16 h-16 bg-white/90 text-slate-900 rounded-full flex items-center justify-center shadow-lg"
                         >
-                          <Play className="h-7 w-7 text-white fill-white ml-1" />
+                          <Play className="h-7 w-7" />
                         </motion.div>
                       </div>
-                      <span className="absolute bottom-3 right-3 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded">VIDEO</span>
+                      <span className="absolute bottom-3 right-3 bg-white/90 text-slate-900 text-[11px] font-semibold px-2 py-1 rounded-full">VIDEO</span>
                     </>
                   ) : (
-                    <span className="text-4xl font-black text-white/10">{b.category}</span>
+                    <span className="text-4xl font-extrabold text-white/20 tracking-tight">{b.category}</span>
                   )}
                 </div>
 
                 <div className="p-6">
-                  <div className="flex items-center gap-4 text-xs text-navy-500 dark:text-navy-600 mb-3">
-                    <span className="flex items-center gap-1"><Calendar className="h-3 w-3"/>{b.date}</span>
-                    <span className="flex items-center gap-1"><Clock className="h-3 w-3"/>{b.readTime}</span>
-                    {b.youtubeUrl && <span className="flex items-center gap-1 text-blue-600"><Play className="h-3 w-3"/>Video</span>}
+                  <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500 mb-4">
+                    <span className="inline-flex items-center gap-1"><Calendar className="h-3 w-3"/>{b.date}</span>
+                    <span className="inline-flex items-center gap-1"><Clock className="h-3 w-3"/>{b.readTime}</span>
+                    <span className={`inline-flex items-center gap-1 rounded-full bg-gradient-to-r ${categoryStyles[b.category]?.badge || 'from-slate-200 to-slate-300 text-slate-700'} px-2 py-1 text-[11px] font-semibold uppercase tracking-wide shadow-lg ${categoryStyles[b.category]?.shadow || 'shadow-slate-200/30'}`}>
+                      {b.category}
+                    </span>
+                    {b.youtubeUrl && <span className="inline-flex items-center gap-1 rounded-full bg-sky-50 px-2 py-1 text-xs font-semibold text-sky-700"><Play className="h-3 w-3"/>Video</span>}
                   </div>
-                  <h3 className="text-base font-bold text-navy-900 dark:text-white group-hover:text-yellow-600 transition-colors">{b.title}</h3>
-                  <p className="mt-2 text-sm text-navy-600 dark:text-navy-600 line-clamp-2">{b.excerpt}</p>
-                  <span className={`mt-4 inline-flex items-center gap-1 text-xs font-semibold ${b.youtubeUrl ? 'text-yellow-600' : 'text-blue-600'}`}>
+                  <h3 className="text-lg font-bold text-slate-900 group-hover:text-sky-600 transition-colors">{b.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-slate-600 line-clamp-3">{b.excerpt}</p>
+                  <span className={`mt-5 inline-flex items-center gap-1 text-sm font-semibold ${b.youtubeUrl ? 'text-red-600' : 'text-sky-600'}`}>
                     {b.youtubeUrl ? 'Watch Video' : 'Read more'} 
-                    <ArrowRight className="h-3 w-3 group-hover:translate-x-0.5 transition-transform"/>
+                    <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform"/>
                   </span>
                 </div>
               </motion.article>

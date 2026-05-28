@@ -70,6 +70,11 @@ export const defaultData: SiteData = {
     {id:'8',q:'Can I migrate from Excel or other software?',a:'Yes, we handle full data migration from Excel, spreadsheets, and other systems. All historical data is accurately transferred with zero downtime, ensuring no loss of critical information.',cat:'Services'},
     {id:'9',q:'Is my data secure?',a:'Tally Prime provides enterprise-grade security with role-based access, audit trails, encrypted storage, and automated backups. We also set up disaster recovery plans.',cat:'Security'},
     {id:'10',q:'Do you serve businesses outside Nairobi?',a:'Yes! We serve clients across Kenya and East Africa. Remote support is available nationwide, and we schedule on-site visits for implementation anywhere in the region.',cat:'General'},
+    {id:'11',q:'Which Tally Prime edition is best for my business?',a:'We recommend Tally Prime Silver for single-user small businesses and Tally Prime Gold for multi-user teams with remote access needs. For branch operations or advanced reporting, we often advise Plus or Enterprise deployments.',cat:'Products'},
+    {id:'12',q:'Can Tally Prime integrate with our POS or bank systems?',a:'Yes. We build Tally Prime integrations using custom TDL and available APIs so your POS, banking, or payment systems sync with accounting and inventory data automatically.',cat:'Integration'},
+    {id:'13',q:'How do you train our staff on Tally Prime?',a:'We provide tailored training sessions for accountants, managers, and operations teams. Training is available on-site or remote and includes real-world workflows, compliance reports, and support best practices.',cat:'Training'},
+    {id:'14',q:'What support options do you offer after implementation?',a:'We offer support plans covering remote assistance, regular health checks, software updates, and on-site visits. Our support response is typically under 1 hour for urgent issues.',cat:'Support'},
+    {id:'15',q:'How can I access Tally Prime remotely?',a:'Tally Prime Gold supports remote access. We can also set up secure cloud hosting so your team accesses Tally Prime from multiple locations while keeping your data centralized and backed up.',cat:'Remote Access'},
   ],
   industries: [
     {id:'1',name:'Retail & Shops',icon:'ShoppingBag',desc:'POS integration, stock management, and multi-branch retail solutions.'},
