@@ -3,6 +3,7 @@ import { MessageCircle, X, Send, Bot, User, Minimize2, Sparkles, RotateCcw } fro
 import { useSite } from '../context/SiteContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import DemoRequestModal from './DemoRequestModal';
+import { getChatGPTReply } from '../utils/chatgpt';
 import type { SiteData } from '../data/siteData';
 
 interface Msg {
@@ -197,14 +198,20 @@ export default function Chatbot() {
     setInput('');
     setTyping(true);
 
-    setTimeout(() => {
-      const botMsg = getBotResponse(txt, data);
-      if (botMsg.action === 'demo') {
-        setDemoOpen(true);
+    (async () => {
+      try {
+        const reply = await getChatGPTReply(txt, data);
+        const botMsg: Msg = { id: Date.now().toString(), role: 'bot', text: reply, time: getTime() };
+        setMsgs((p) => [...p, botMsg]);
+      } catch (err) {
+        // fallback to existing rule-based bot if no key or error
+        const botMsg = getBotResponse(txt, data);
+        if (botMsg.action === 'demo') setDemoOpen(true);
+        setMsgs((p) => [...p, botMsg]);
+      } finally {
+        setTyping(false);
       }
-      setMsgs((p) => [...p, botMsg]);
-      setTyping(false);
-    }, 600 + Math.random() * 800);
+    })();
   };
 
   const handleClear = () => {
