@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Award, Clock, Shield, Users } from 'lucide-react';
+import TallyPrimeIcon from './TallyPrimeIcon';
 
 const stats = [
   { icon: Users, value: 500, suffix: '+', label: 'Businesses Served' },
@@ -14,6 +15,7 @@ export default function TrustBanner() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-12 text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 shadow-sm">
+            <TallyPrimeIcon className="h-4 w-4" showText={false} />
             Certified TallyPrime Partner · eTIMS Compliant · KRA Approved
           </div>
           <h2 className="mt-6 text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
