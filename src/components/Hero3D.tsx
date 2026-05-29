@@ -13,11 +13,7 @@ export default function Hero3D() {
       <div className="relative mx-auto max-w-7xl px-4 pt-12 pb-24 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] items-center">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4">
-              <Logo className="h-12 w-auto text-blue-950" variant="icon" />
-            </div>
-
-            <h1 className="mt-8 max-w-3xl text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
+            <h1 className="mt-0 max-w-3xl text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
               Helping Businesses Gain Financial Clarity, Connectivity & Operational Traction
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">

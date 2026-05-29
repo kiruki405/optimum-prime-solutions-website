@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
-import { Package, BookOpen, Wallet, Factory, FileCheck, Code, Headphones, BarChart3, ArrowRight, Sparkles, ExternalLink, type LucideIcon } from 'lucide-react';
+import { Package, BookOpen, Wallet, Factory, FileCheck, Code, Headphones, BarChart3, Sparkles, type LucideIcon } from 'lucide-react';
 import { useSite } from '../context/SiteContext';
+import TallyPrimeIcon from './TallyPrimeIcon';
 
 const iconMap: Record<string, LucideIcon> = {
   Package, BookOpen, Wallet, Factory, FileCheck, Code, Headphones, BarChart3, Download: Package
@@ -139,7 +140,9 @@ export default function Features() {
                   whileHover={{ y: -2 }}
                   className="mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-sky-600 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-sky-500/20 transition duration-300 hover:bg-sky-700"
                 >
-                  <ExternalLink className="h-4 w-4" />
+                  <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/15">
+                    <TallyPrimeIcon className="h-4 w-4" showText={false} isDark />
+                  </span>
                   View on Tally
                 </motion.a>
               </motion.div>

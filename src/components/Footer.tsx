@@ -22,14 +22,8 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl space-y-12 px-4 py-16 sm:px-6 lg:px-8">
         <div className="rounded-4xl bg-white/90 p-8 grid gap-8 lg:grid-cols-[1.4fr_0.9fr_0.9fr_1fr] shadow-2xl shadow-slate-200/20 ring-1 ring-slate-200/70">
           <div className="space-y-5">
-            <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-600 to-cyan-400 text-white shadow-lg shadow-cyan-200/20">
-                <Logo className="h-8 w-auto text-white" variant="icon" />
-              </div>
-              <div>
-                <p className="text-lg font-semibold text-slate-950">Optimum Prime</p>
-                <p className="text-xs uppercase tracking-[0.35em] text-slate-500">Solutions</p>
-              </div>
+            <div className="flex items-center gap-4">
+              <Logo className="h-14 w-auto" variant="full" />
             </div>
             <p className="max-w-md text-sm leading-relaxed text-slate-500">
               {data.company.tagline}. Your trusted Tally Prime partner in Kenya.
@@ -52,7 +46,10 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-slate-700">
               {links.map((link) => (
                 <li key={link.h}>
-                  <Link to={link.h} className="text-slate-700 hover:text-sky-700 transition">
+                  <Link
+                    to={link.h}
+                    className="block rounded-2xl px-3 py-2 text-slate-700 transition hover:bg-slate-100 hover:text-sky-700"
+                  >
                     {link.l}
                   </Link>
                 </li>
@@ -65,7 +62,10 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-slate-700">
               {data.services.slice(0, 6).map((service) => (
                 <li key={service.id}>
-                  <Link to="/features" className="text-slate-700 hover:text-sky-700 transition">
+                  <Link
+                    to="/features"
+                    className="block rounded-2xl px-3 py-2 text-slate-700 transition hover:bg-slate-100 hover:text-sky-700"
+                  >
                     {service.title}
                   </Link>
                 </li>
@@ -86,6 +86,15 @@ export default function Footer() {
                 Join
               </button>
             </form>
+
+            <div className="mt-8 overflow-hidden rounded-[2rem] bg-white shadow-xl shadow-slate-200 min-h-[180px] sm:min-h-[200px]">
+              <img
+                src="/tally-cloud-banner.svg"
+                alt="Tally 7.0 logo and banner"
+                className="w-full h-full object-contain"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
 
