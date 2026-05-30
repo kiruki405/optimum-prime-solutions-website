@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+import { useEffect, useMemo, useState } from 'react';
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import { SiteProvider } from './context/SiteContext';
 import ErrorBoundary from './components/ErrorBoundary';
 import { OfflineBanner } from './components/OfflineBanner';
@@ -17,59 +17,11 @@ import TestimonialsPage from './pages/TestimonialsPage';
 import BlogPage from './pages/BlogPage';
 import FAQPage from './pages/FAQPage';
 import ContactPage from './pages/ContactPage';
+import { fbLogin, fbLogout, fbOnAuthStateChanged, fbAuth } from './firebase/config';
+import type { User } from 'firebase/auth';
+import { signInAnonymously } from 'firebase/auth';
 
-type View = 'site' | 'login' | 'admin';
-
-function Inner() {
-  const [view, setView] = useState<View>('site');
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  useEffect(() => {
-    if (view === 'site') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  }, [location.pathname, view]);
-
-  useEffect(() => {
-    const check = () => {
-      const hash = window.location.hash.toLowerCase();
-      if (hash.includes('admin')) {
-        const isAuthenticated = sessionStorage.getItem('ops_admin') === '1' || localStorage.getItem('ops_admin') === '1';
-        setView(isAuthenticated ? 'admin' : 'login');
-      } else {
-        setView('site');
-      }
-    };
-
-    check();
-    window.addEventListener('hashchange', check);
-    return () => window.removeEventListener('hashchange', check);
-  }, []);
-
-  if (view === 'login')
-    return (
-      <AdminLogin
-        onLogin={() => {
-          sessionStorage.setItem('ops_admin', '1');
-          localStorage.setItem('ops_admin', '1');
-          setView('admin');
-        }}
-      />
-    );
-
-  if (view === 'admin')
-    return (
-      <AdminLayout
-        onLogout={() => {
-          sessionStorage.removeItem('ops_admin');
-          localStorage.removeItem('ops_admin');
-          window.location.hash = '';
-          setView('site');
-        }}
-      />
-    );
-
+function SiteRoutes() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-950 flex flex-col">
       <StickyDownloadBar />
@@ -84,6 +36,7 @@ function Inner() {
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/faq" element={<FAQPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
       <Footer />
@@ -92,13 +45,69 @@ function Inner() {
   );
 }
 
-export default function App() {
+function App() {
+  const [user, setUser] = useState<User | null>(null);
+  const [authReady, setAuthReady] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const unsubscribe = fbOnAuthStateChanged((currentUser) => {
+      setUser(currentUser);
+      setAuthReady(true);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  useEffect(() => {
+    if (user === null) {
+      const authInstance = fbAuth();
+      signInAnonymously(authInstance).catch(() => {
+        // If anon sign-in fails, site may still work with public DB access.
+      });
+    }
+  }, [user]);
+
+  const isAuthenticated = useMemo(
+    () => Boolean(user && !user.isAnonymous),
+    [user]
+  );
+
+  const handleLogin = async (email: string, password: string) => {
+    await fbLogin(email, password);
+    navigate('/admin/dashboard');
+  };
+
+  const handleLogout = async () => {
+    await fbLogout();
+    navigate('/');
+  };
+
+  if (!authReady) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-slate-50 text-slate-950">
+        <p className="text-sm text-slate-600">Checking admin access…</p>
+      </div>
+    );
+  }
+
   return (
     <ErrorBoundary>
       <SiteProvider>
-        <Inner />
+        <Routes>
+          <Route path="/admin" element={<AdminLogin onLogin={handleLogin} />} />
+          <Route
+            path="/admin/*"
+            element={
+              isAuthenticated ? <AdminLayout onLogout={handleLogout} /> : <Navigate to="/admin" replace />
+            }
+          />
+          <Route path="/*" element={<SiteRoutes />} />
+        </Routes>
         <OfflineBanner />
       </SiteProvider>
     </ErrorBoundary>
   );
 }
+
+export default App;

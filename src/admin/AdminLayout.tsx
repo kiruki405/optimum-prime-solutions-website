@@ -110,7 +110,7 @@ export default function AdminLayout({ onLogout }: Props) {
         <SidebarNav />
 
         <div className="border-t border-navy-100 p-3 space-y-0.5 shrink-0">
-          <a href="#home" className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-navy-600 hover:bg-navy-50 transition">
+          <a href="/" className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-navy-600 hover:bg-navy-50 transition">
             <ExternalLink className="h-4 w-4" />View Website
           </a>
           <button onClick={handleReset} className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-orange-600 hover:bg-orange-50 transition">
