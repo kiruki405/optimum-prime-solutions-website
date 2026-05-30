@@ -59,7 +59,7 @@ export default function Products() {
               key={p.id}
               variants={itemVariants}
               whileHover={{ y: p.popular ? 0 : -8 }}
-              className={`group relative rounded-2xl border p-8 transition-all duration-300 overflow-hidden ${
+              className={`group relative rounded-2xl border p-8 transition-all duration-300 overflow-visible ${
                 p.popular
                   ? 'border-red-500/40 bg-gradient-to-br from-red-50 via-white to-red-50 shadow-xl shadow-red-900/10 xl:scale-[1.05] text-slate-950'
                   : 'border-slate-200 bg-white shadow-xl hover:shadow-slate-300/30'

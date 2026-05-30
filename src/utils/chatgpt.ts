@@ -17,6 +17,10 @@ export async function getChatGPTReply(userText: string, siteData: any) {
     max_tokens: 600,
   };
 
+  // add a reasonable timeout so quicklinks fall back if the API is slow
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 6000);
+
   const res = await fetch('https://api.openai.com/v1/chat/completions', {
     method: 'POST',
     headers: {
@@ -24,7 +28,8 @@ export async function getChatGPTReply(userText: string, siteData: any) {
       Authorization: `Bearer ${key}`,
     },
     body: JSON.stringify(body),
-  });
+    signal: controller.signal,
+  }).finally(() => clearTimeout(timeout));
 
   if (!res.ok) {
     const text = await res.text();

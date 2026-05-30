@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { MessageCircle, X, Send, Bot, User, Minimize2, Sparkles, RotateCcw } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 import { useSite } from '../context/SiteContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import DemoRequestModal from './DemoRequestModal';
@@ -24,7 +25,7 @@ function getBotResponse(q: string, d: SiteData): Msg {
   const responses = [
     {
       pattern: /^(hi|hello|hey|jambo|habari|sasa|hallo)/,
-      message: `Hello! 👋 Welcome to ${d.company.name}. I can help you with:\n\n✦ Our services & solutions\n✦ Pricing, editions & integrations\n✦ KRA compliance and payroll\n✦ Remote access and training\n✦ Demo requests and FAQs`,
+      message: `Hello! 👋 Welcome to ${d.company.name}. How can I assist you today? I can help with:\n\n✦ Services & solutions\n✦ Pricing, editions & integrations\n✦ KRA compliance and payroll\n✦ Remote access and training\n✦ Demo requests and FAQs`,
     },
     {
       pattern: /demo|trial|test|try/,
@@ -33,7 +34,7 @@ function getBotResponse(q: string, d: SiteData): Msg {
     },
     {
       pattern: /price|cost|how much|silver|gold|edition/,
-      message: `💎 **Tally Prime Pricing:**\n\n${d.products.map((p) => `• **${p.name} ${p.edition}**: ${p.price} (${p.period})`).join('\n')}\n\nContact us for volume discounts and training packages!`,
+      message: `**Tally Prime Pricing:**\n\n${d.products.map((p) => `• **${p.name} ${p.edition}**: ${p.price} (${p.period})`).join('\n')}\n\nContact us for volume discounts and training packages!`,
     },
     {
       pattern: /service|what (do|can) you|offer|provide/,
@@ -41,7 +42,7 @@ function getBotResponse(q: string, d: SiteData): Msg {
     },
     {
       pattern: /edition|compare|silver|gold|plus|enterprise/,
-      message: `💎 **Tally Prime Editions:**\n\n• **Silver**: Single user accounting, ideal for small businesses.\n• **Gold**: Multi-user access with remote login.\n• **Plus / Enterprise**: Scalable operations, branch workflows, and cloud-ready deployment.\n\nI can recommend the best edition for your business.`,
+      message: `**Tally Prime Editions:**\n\n• **Silver**: Single user accounting, ideal for small businesses.\n• **Multi-user**: Multi-user access with remote login.\n• **Plus / Enterprise**: Scalable operations, branch workflows, and cloud-ready deployment.\n\nI can recommend the best edition for your business.`,
     },
     {
       pattern: /integrat|api|pos|bank|third-party|payment/,
@@ -57,7 +58,7 @@ function getBotResponse(q: string, d: SiteData): Msg {
     },
     {
       pattern: /remote|cloud|access|online|work anywhere|multi-branch/,
-      message: `☁️ **Remote Access & Cloud**\n\nTally Prime Gold supports secure remote access. We also offer cloud hosting options so your team can access centralized Tally Prime data from anywhere.\n\nPerfect for multi-branch and remote teams.`,
+      message: `☁️ **Remote Access & Cloud**\n\nTally Prime supports secure remote access. We also offer cloud hosting options so your team can access centralized Tally Prime data from anywhere.\n\nPerfect for multi-branch and remote teams.`,
     },
     {
       pattern: /kra|tax|vat|etims|compliance|e-filing/,
@@ -148,7 +149,7 @@ function FormatMessage({ text }: { text: string }) {
           const symbol = line.trim()[0];
           return (
             <div key={i} className="ml-1 flex gap-1.5">
-              <span className="text-yellow-600">{symbol}</span>
+              <span className="text-sky-500">{symbol}</span>
               <span>{formatted.slice(1)}</span>
             </div>
           );
@@ -161,6 +162,16 @@ function FormatMessage({ text }: { text: string }) {
 
 export default function Chatbot() {
   const { data } = useSite();
+  const defaultQuickLinks = [
+    'Request a demo',
+    'Pricing & editions',
+    'KRA compliance',
+    'Remote access',
+    'Training & onboarding',
+    'Cloud hosting',
+    'Support plans',
+    'Implementation',
+  ];
   const [open, setOpen] = useState(false);
   const [min, setMin] = useState(false);
   const [input, setInput] = useState('');
@@ -170,7 +181,7 @@ export default function Chatbot() {
     {
       id: '0',
       role: 'bot',
-      text: `👋 Hello! I'm the Optimum Prime Assistant. I can help with:\n\n✦ Tally Prime solutions & services\n✦ Pricing, editions & integrations\n✦ KRA compliance and payroll\n✦ Remote access and training\n✦ Demo requests and FAQs\n\nAsk me anything or select a quick question.`,
+      text: `👋 Hello! I'm the Optimum Prime Assistant. I can help you with services, pricing, compliance, remote access, demos and training. Choose a quick link below or type your question.`,
       time: getTime(),
     },
   ]);
@@ -236,9 +247,10 @@ export default function Chatbot() {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
             onClick={() => setOpen(true)}
-            className="fixed bottom-6 right-6 z-40 h-14 w-14 rounded-full bg-gradient-to-br from-sky-500 via-blue-600 to-blue-700 text-white shadow-2xl shadow-blue-600/40 hover:scale-110 transition-all flex items-center justify-center group"
+            className="fixed bottom-6 right-6 z-40 h-14 w-14 rounded-full bg-gradient-to-br from-sky-500 via-blue-600 to-blue-700 text-white shadow-2xl shadow-blue-600/40 hover:scale-110 transition-all flex items-center justify-center gap-2 px-3 group"
             aria-label="Chat"
           >
+            <WhatsAppIcon className="h-4 w-4 text-green-400" />
             <motion.div animate={{ rotate: [0, 10, -10, 0] }} transition={{ duration: 2, repeat: Infinity }}>
               <MessageCircle className="h-6 w-6" />
             </motion.div>
@@ -271,6 +283,17 @@ export default function Chatbot() {
                   </motion.div>
                   <span className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full border-2 border-slate-950 bg-green-400" />
                 </div>
+                  {/* WhatsApp quick link */}
+                  <a
+                    href={`https://wa.me/${data.contact.whatsapp}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center justify-center h-8 w-8 rounded-full bg-white/10 hover:bg-white/20 ml-1"
+                    title="Chat on WhatsApp"
+                    aria-label="WhatsApp"
+                  >
+                    <WhatsAppIcon className="h-5 w-5 text-green-400" />
+                  </a>
                 {!min && (
                   <div>
                     <p className="text-sm font-semibold text-white">Optimum Assistant</p>
@@ -330,7 +353,7 @@ export default function Chatbot() {
                         }`}
                       >
                         {m.role === 'bot' ? (
-                          <Bot className="h-3.5 w-3.5 text-yellow-600" />
+                            <Bot className="h-3.5 w-3.5 text-sky-300" />
                         ) : (
                           <User className="h-3.5 w-3.5 text-white" />
                         )}
@@ -339,10 +362,25 @@ export default function Chatbot() {
                         className={`max-w-[80%] rounded-2xl px-3.5 py-2.5 text-[13px] leading-relaxed ${
                           m.role === 'bot'
                             ? 'rounded-tl-sm bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 shadow-sm border border-slate-100 dark:border-slate-700'
-                            : 'rounded-tr-sm bg-gradient-to-br from-yellow-400 to-blue-600 text-white'
+                            : 'rounded-tr-sm bg-gradient-to-br from-sky-500 to-blue-600 text-white'
                         }`}
                       >
                         <FormatMessage text={m.text} />
+                        {m.role === 'bot' && m.id === '0' && (
+                          <div className="mt-3 flex flex-wrap gap-2">
+                            {defaultQuickLinks.slice(0, 6).map((s) => (
+                              <motion.button
+                                key={s}
+                                whileHover={{ scale: 1.03 }}
+                                whileTap={{ scale: 0.97 }}
+                                onClick={() => send(s)}
+                                className="rounded-full border border-sky-300/20 bg-sky-400/5 px-3 py-1 text-[12px] font-medium text-sky-600 hover:bg-sky-400/10 transition"
+                              >
+                                {s}
+                              </motion.button>
+                            ))}
+                          </div>
+                        )}
                         {m.action === 'demo' && (
                           <motion.button
                             initial={{ opacity: 0, y: 5 }}
@@ -370,7 +408,7 @@ export default function Chatbot() {
                   {typing && (
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex gap-2">
                       <div className="h-7 w-7 rounded-full bg-slate-900 flex items-center justify-center">
-                        <Bot className="h-3.5 w-3.5 text-yellow-600" />
+                        <Bot className="h-3.5 w-3.5 text-sky-300" />
                       </div>
                       <div className="rounded-2xl rounded-tl-sm bg-white dark:bg-slate-900 px-4 py-3 shadow-sm border border-slate-100 dark:border-slate-700">
                         <div className="flex gap-1">
@@ -390,19 +428,22 @@ export default function Chatbot() {
                 </div>
 
                 {/* Quick Questions */}
-                {msgs.length <= 2 && (
+                        {msgs.length <= 2 && (
                   <div className="border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950 px-3 py-2 shrink-0">
                     <p className="mb-1.5 text-[9px] font-medium uppercase tracking-wider text-slate-600">
                       Quick questions
                     </p>
                     <div className="flex flex-wrap gap-1">
-                      {[
-                        'Services & pricing',
-                        'Request a demo',
-                        'KRA compliance',
-                        'Remote access',
-                        'Training options',
-                      ].map((s) => (
+                              {[
+                                'Services & pricing',
+                                'Request a demo',
+                                'KRA compliance',
+                                'Remote access',
+                                'Training options',
+                                'Cloud hosting',
+                                'Support plan',
+                                'Implementation',
+                              ].map((s) => (
                         <motion.button
                           key={s}
                           whileHover={{ scale: 1.05 }}
