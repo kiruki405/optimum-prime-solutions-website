@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import { SiteProvider } from './context/SiteContext';
 import ErrorBoundary from './components/ErrorBoundary';
@@ -17,6 +17,9 @@ import TestimonialsPage from './pages/TestimonialsPage';
 import BlogPage from './pages/BlogPage';
 import FAQPage from './pages/FAQPage';
 import ContactPage from './pages/ContactPage';
+import { fbLogin, fbLogout, fbOnAuthStateChanged, fbAuth } from './firebase/config';
+import type { User } from 'firebase/auth';
+import { signInAnonymously } from 'firebase/auth';
 
 function SiteRoutes() {
   return (
@@ -43,23 +46,50 @@ function SiteRoutes() {
 }
 
 function App() {
+  const [user, setUser] = useState<User | null>(null);
+  const [authReady, setAuthReady] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const unsubscribe = fbOnAuthStateChanged((currentUser) => {
+      setUser(currentUser);
+      setAuthReady(true);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  useEffect(() => {
+    if (user === null) {
+      const authInstance = fbAuth();
+      signInAnonymously(authInstance).catch(() => {
+        // If anon sign-in fails, site may still work with public DB access.
+      });
+    }
+  }, [user]);
+
   const isAuthenticated = useMemo(
-    () => sessionStorage.getItem('ops_admin') === '1' || localStorage.getItem('ops_admin') === '1',
-    []
+    () => Boolean(user && !user.isAnonymous),
+    [user]
   );
 
-  const handleLogin = () => {
-    sessionStorage.setItem('ops_admin', '1');
-    localStorage.setItem('ops_admin', '1');
+  const handleLogin = async (email: string, password: string) => {
+    await fbLogin(email, password);
     navigate('/admin/dashboard');
   };
 
-  const handleLogout = () => {
-    sessionStorage.removeItem('ops_admin');
-    localStorage.removeItem('ops_admin');
+  const handleLogout = async () => {
+    await fbLogout();
     navigate('/');
   };
+
+  if (!authReady) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-slate-50 text-slate-950">
+        <p className="text-sm text-slate-600">Checking admin access…</p>
+      </div>
+    );
+  }
 
   return (
     <ErrorBoundary>
