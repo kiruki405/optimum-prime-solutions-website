@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+import { useMemo } from 'react';
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import { SiteProvider } from './context/SiteContext';
 import ErrorBoundary from './components/ErrorBoundary';
 import { OfflineBanner } from './components/OfflineBanner';
@@ -18,58 +18,7 @@ import BlogPage from './pages/BlogPage';
 import FAQPage from './pages/FAQPage';
 import ContactPage from './pages/ContactPage';
 
-type View = 'site' | 'login' | 'admin';
-
-function Inner() {
-  const [view, setView] = useState<View>('site');
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  useEffect(() => {
-    if (view === 'site') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  }, [location.pathname, view]);
-
-  useEffect(() => {
-    const check = () => {
-      const hash = window.location.hash.toLowerCase();
-      if (hash.includes('admin')) {
-        const isAuthenticated = sessionStorage.getItem('ops_admin') === '1' || localStorage.getItem('ops_admin') === '1';
-        setView(isAuthenticated ? 'admin' : 'login');
-      } else {
-        setView('site');
-      }
-    };
-
-    check();
-    window.addEventListener('hashchange', check);
-    return () => window.removeEventListener('hashchange', check);
-  }, []);
-
-  if (view === 'login')
-    return (
-      <AdminLogin
-        onLogin={() => {
-          sessionStorage.setItem('ops_admin', '1');
-          localStorage.setItem('ops_admin', '1');
-          setView('admin');
-        }}
-      />
-    );
-
-  if (view === 'admin')
-    return (
-      <AdminLayout
-        onLogout={() => {
-          sessionStorage.removeItem('ops_admin');
-          localStorage.removeItem('ops_admin');
-          window.location.hash = '';
-          setView('site');
-        }}
-      />
-    );
-
+function SiteRoutes() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-950 flex flex-col">
       <StickyDownloadBar />
@@ -84,6 +33,7 @@ function Inner() {
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/faq" element={<FAQPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
       <Footer />
@@ -92,13 +42,42 @@ function Inner() {
   );
 }
 
-export default function App() {
+function App() {
+  const navigate = useNavigate();
+  const isAuthenticated = useMemo(
+    () => sessionStorage.getItem('ops_admin') === '1' || localStorage.getItem('ops_admin') === '1',
+    []
+  );
+
+  const handleLogin = () => {
+    sessionStorage.setItem('ops_admin', '1');
+    localStorage.setItem('ops_admin', '1');
+    navigate('/admin/dashboard');
+  };
+
+  const handleLogout = () => {
+    sessionStorage.removeItem('ops_admin');
+    localStorage.removeItem('ops_admin');
+    navigate('/');
+  };
+
   return (
     <ErrorBoundary>
       <SiteProvider>
-        <Inner />
+        <Routes>
+          <Route path="/admin" element={<AdminLogin onLogin={handleLogin} />} />
+          <Route
+            path="/admin/*"
+            element={
+              isAuthenticated ? <AdminLayout onLogout={handleLogout} /> : <Navigate to="/admin" replace />
+            }
+          />
+          <Route path="/*" element={<SiteRoutes />} />
+        </Routes>
         <OfflineBanner />
       </SiteProvider>
     </ErrorBoundary>
   );
 }
+
+export default App;

@@ -73,7 +73,7 @@ export default function DashboardHome({ data, onNav }: P) {
           <li className="flex items-start gap-2"><span className="h-5 w-5 rounded-full bg-accent/10 flex items-center justify-center text-[10px] font-bold text-accent shrink-0 mt-0.5">4</span>FAQ changes also improve chatbot responses automatically</li>
           <li className="flex items-start gap-2"><span className="h-5 w-5 rounded-full bg-accent/10 flex items-center justify-center text-[10px] font-bold text-accent shrink-0 mt-0.5">5</span>Use <strong className="text-navy-800">Reset to Defaults</strong> in sidebar to undo all changes</li>
         </ul>
-        <p className="mt-4 text-xs text-navy-400">Access this panel anytime by adding <code className="rounded bg-navy-100 px-1.5 py-0.5 text-[11px] font-mono text-navy-600">#admin</code> to any page URL</p>
+        <p className="mt-4 text-xs text-navy-400">Access this panel anytime by visiting <code className="rounded bg-navy-100 px-1.5 py-0.5 text-[11px] font-mono text-navy-600">/admin</code></p>
       </div>
     </div>
   );
