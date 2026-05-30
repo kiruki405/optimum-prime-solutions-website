@@ -1,6 +1,6 @@
 import { ArrowUp, Mail, MapPin, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import Logo from './Logo';
+import TallyLogo from './TallyLogo';
 import { useSite } from '../context/SiteContext';
 
 const links = [
@@ -23,7 +23,7 @@ export default function Footer() {
         <div className="rounded-4xl bg-white/90 p-8 grid gap-8 lg:grid-cols-[1.4fr_0.9fr_0.9fr_1fr] shadow-2xl shadow-slate-200/20 ring-1 ring-slate-200/70">
           <div className="space-y-5">
             <div className="flex items-center gap-4">
-              <Logo className="h-14 w-auto" variant="full" />
+              <TallyLogo className="h-14 w-auto" />
             </div>
             <p className="max-w-md text-sm leading-relaxed text-slate-500">
               {data.company.tagline}. Your trusted Tally Prime partner in Kenya.
