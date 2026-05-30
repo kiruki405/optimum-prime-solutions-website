@@ -1,6 +1,9 @@
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Package, BookOpen, Wallet, Factory, FileCheck, Code, Headphones, BarChart3, ArrowRight, Sparkles, ExternalLink, type LucideIcon } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
+import { Package, BookOpen, Wallet, Factory, FileCheck, Code, Headphones, BarChart3, Sparkles, type LucideIcon } from 'lucide-react';
 import { useSite } from '../context/SiteContext';
+import TallyPrimeIcon from './TallyPrimeIcon';
 
 const iconMap: Record<string, LucideIcon> = {
   Package, BookOpen, Wallet, Factory, FileCheck, Code, Headphones, BarChart3, Download: Package
@@ -8,6 +11,17 @@ const iconMap: Record<string, LucideIcon> = {
 
 export default function Features() {
   const { data } = useSite();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname !== '/features') return;
+    const targetId = location.hash?.replace('#', '');
+    if (!targetId) return;
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [location.pathname, location.hash]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -63,6 +77,7 @@ export default function Features() {
             const isHeroCard = i === 0;
             return (
               <motion.div
+                id={`service-${svc.id}`}
                 key={svc.id}
                 variants={itemVariants}
                 whileHover={{ y: -12, rotateX: -5, transition: { duration: 0.3 } }}
@@ -107,13 +122,13 @@ export default function Features() {
                 <h3 className={`text-base font-bold flex items-center gap-2 ${isHeroCard ? 'text-slate-950' : 'text-slate-900'} ${!isHeroCard ? 'group-hover:text-sky-600' : ''}`}>
                   {svc.title}
                 </h3>
-                <p className={`mt-3 text-sm leading-relaxed line-clamp-2 ${isHeroCard ? 'text-slate-700' : 'text-slate-600'}`}>
+                <p className={`mt-3 text-sm leading-relaxed ${isHeroCard ? 'text-slate-700' : 'text-slate-600'}`}>
                   {svc.desc}
                 </p>
 
                 {/* Features list */}
                 <ul className="mt-4 space-y-2">
-                  {svc.features.slice(0, 2).map((f) => (
+                  {svc.features.map((f) => (
                     <motion.li
                       key={f}
                       whileHover={{ x: 4 }}
@@ -126,20 +141,17 @@ export default function Features() {
                       {f}
                     </motion.li>
                   ))}
-                  {svc.features.length > 2 && (
-                    <li className={`text-xs font-semibold ${isHeroCard ? 'text-slate-300' : 'text-slate-700'}`}>
-                      +{svc.features.length - 2} more
-                    </li>
-                  )}
                 </ul>
                 <motion.a
-                  href={svc.cta}
+                  href={svc.link || svc.cta || '#'}
                   target="_blank"
                   rel="noreferrer"
                   whileHover={{ y: -2 }}
                   className="mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-sky-600 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-sky-500/20 transition duration-300 hover:bg-sky-700"
                 >
-                  <ExternalLink className="h-4 w-4" />
+                  <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/15">
+                    <TallyPrimeIcon className="h-4 w-4" showText={false} isDark />
+                  </span>
                   View on Tally
                 </motion.a>
               </motion.div>

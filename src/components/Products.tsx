@@ -59,7 +59,7 @@ export default function Products() {
               key={p.id}
               variants={itemVariants}
               whileHover={{ y: p.popular ? 0 : -8 }}
-              className={`group relative rounded-2xl border p-8 transition-all duration-300 overflow-hidden ${
+              className={`group relative rounded-2xl border p-8 transition-all duration-300 overflow-visible ${
                 p.popular
                   ? 'border-red-500/40 bg-gradient-to-br from-red-50 via-white to-red-50 shadow-xl shadow-red-900/10 xl:scale-[1.05] text-slate-950'
                   : 'border-slate-200 bg-white shadow-xl hover:shadow-slate-300/30'
@@ -70,7 +70,7 @@ export default function Products() {
                 <motion.div
                   initial={{ y: -10, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-yellow-400 to-blue-600 px-4 py-1.5 text-xs font-bold text-white flex items-center gap-1.5 shadow-lg"
+                  className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-red-600 px-4 py-1.5 text-xs font-bold text-white flex items-center gap-1.5 shadow-lg shadow-red-600/30"
                 >
                   <Star className="h-3.5 w-3.5" />
                   Most Popular
@@ -133,7 +133,12 @@ export default function Products() {
                     )}
                   </span>
                 </motion.div>
-                <p className="text-xs text-slate-400 mt-1">{p.period}</p>
+                <p className="text-xs text-slate-500 mt-1">{p.period}</p>
+                {p.popular && (
+                  <p className="mt-4 text-sm font-medium text-slate-700">
+                    Best value for growing teams that need multi-user access, remote connectivity, and priority support.
+                  </p>
+                )}
               </div>
 
               {/* Features */}
@@ -144,10 +149,10 @@ export default function Products() {
                     initial={{ opacity: 0, x: -10 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ delay: idx * 0.05 }}
-                    className={`flex items-start gap-3 text-xs ${p.popular ? 'text-white' : 'text-slate-600'}`}
+                    className={`flex items-start gap-3 text-xs ${p.popular ? 'text-slate-700' : 'text-slate-600'}`}
                   >
                     <motion.div whileHover={{ scale: 1.2 }}>
-                      <Check className="mt-0.5 h-4 w-4 text-yellow-600 shrink-0" />
+                      <Check className={`mt-0.5 h-4 w-4 shrink-0 ${p.popular ? 'text-red-500' : 'text-yellow-600'}`} />
                     </motion.div>
                     <span>{f}</span>
                   </motion.li>

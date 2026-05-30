@@ -174,10 +174,6 @@ export default function Contact() {
             >
               <WhatsAppIcon className="h-4 w-4 text-white" /> Chat on WhatsApp
             </a>
-
-            <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white h-56">
-              <iframe src={c.mapUrl} width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" title="Location" />
-            </div>
           </div>
 
           <div className="lg:col-span-3">
