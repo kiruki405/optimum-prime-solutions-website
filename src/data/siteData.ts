@@ -98,6 +98,114 @@ export const defaultData: SiteData = {
     {id:'8',name:'Education & NGOs',icon:'GraduationCap',desc:'Fee management, donor tracking, and grant accounting.'},
   ],
   blogs: [
+    {id:'4',title:'Remote and On-Site Support: How Optimum Walks With Your Business End to End',excerpt:'Installing TallyPrime is only the beginning. Discover how Optimum supports Kenyan businesses through implementation, training, remote assistance, on-site visits, troubleshooting, and long-term growth.',date:'2026-09-17',category:'Insights',readTime:'7 min',content:`Installing business software is only the beginning. The real value comes from having knowledgeable people beside you when you need to configure a system, train your staff, solve an operational problem, or make better decisions as your business grows.
+
+At Optimum Prime Solutions, we do not simply install TallyPrime and leave your team to figure things out alone. We walk with your business from the first conversation through implementation, training, daily use, improvement, and long-term support.
+
+Support that understands your business
+
+Every business is different. A retail shop, manufacturing company, distributor, pharmacy, SACCO, and professional-services firm may all use business-management software, but their workflows are not the same.
+
+Our support begins by understanding how your business operates. We learn about your sales process, purchasing cycle, inventory, payroll, reporting needs, branches, approvals, compliance requirements, and the challenges your staff face every day.
+
+This allows us to configure solutions around your business instead of forcing your business into a generic setup.
+
+The business challenges we help you overcome
+
+Many businesses contact us after experiencing problems that affect daily operations, reporting, and growth. You may be dealing with:
+
+- Scattered information: Financial, stock, payroll, and customer records are spread across Excel files, notebooks, separate computers, or disconnected systems.
+- A difficult migration: You need to move from Excel, QuickBooks, Sage, or another system without losing important history or disrupting current operations.
+- Inaccurate data: Duplicate records, incorrect opening balances, inconsistent item names, and unreliable stock figures make reports difficult to trust.
+- Manual work: Staff spend too much time entering information, reconciling payments, preparing reports, or calculating payroll manually.
+- Limited visibility: Business owners cannot quickly see sales, stock, cash flow, profitability, or performance across branches.
+- Compliance pressure: VAT, PAYE, eTIMS, and other statutory requirements create uncertainty when records and reports are not properly configured.
+- Low staff confidence: Employees may not know how to use the system, or different users may follow inconsistent procedures.
+- Remote-access concerns: Managers and teams need secure access from different locations but are concerned about data security, backups, and reliability.
+- Poor post-installation support: The software is available, but there is no knowledgeable partner to answer questions or resolve issues when they arise.
+
+Our role is to turn these challenges into a practical implementation plan. We help you identify what should be cleaned or migrated, how staff should work in the system, and what support structure will keep your business operating confidently.
+
+We walk with your business beyond go-live
+
+Implementing TallyPrime is only the beginning. Our responsibility does not end when the software has been installed or the first training session is complete. We remain involved as your team starts using the system, questions arise, and your business develops new requirements.
+
+Our approach is built around four commitments:
+
+1. Understand: We learn how your business operates before recommending a solution.
+2. Implement: We configure TallyPrime, migrate information, and prepare the system around your processes.
+3. Train: We equip your staff with practical knowledge and confidence for their daily responsibilities.
+4. Support and improve: We remain available to troubleshoot, review, and strengthen your systems as the business grows.
+
+What happens after you contact us?
+
+We make the journey clear from the first conversation:
+
+1. We learn about your business. We discuss your industry, users, branches, current software, reporting needs, and immediate challenges.
+2. We identify the right solution. We recommend the appropriate TallyPrime edition, implementation scope, cloud or local setup, and support approach.
+3. We prepare a practical plan. You receive a clear explanation of the work involved, expected timelines, and the investment required.
+4. We configure and train. Our team handles setup, migration, customization where needed, and practical staff training.
+5. We support you after go-live. We remain available through remote assistance, scheduled on-site visits, system reviews, and ongoing guidance.
+
+This means you are not left alone to work out what to do after purchasing software. You have a knowledgeable partner to help your business move from setup to confident daily use.
+
+Remote support when you need a fast response
+
+Many questions and technical issues can be resolved quickly through remote support. Our team can guide users, review configurations, troubleshoot errors, assist with reports, and help restore normal operations without requiring an immediate site visit.
+
+Remote support can help with:
+
+- TallyPrime configuration and user guidance.
+- Accounting, inventory, payroll, and reporting questions.
+- Software troubleshooting and updates.
+- Backup and data-access guidance.
+- User permissions and security settings.
+- KRA, VAT, payroll, and eTIMS-related workflows.
+- Support for teams working from different locations.
+
+Remote assistance is especially useful when your business operates across branches or when an issue needs attention quickly.
+
+On-site support for hands-on implementation
+
+Some business needs require a physical presence. During an on-site visit, our team works directly with your staff and observes your operations in their real working environment.
+
+On-site support may include:
+
+- Initial installation and implementation.
+- Data migration from Excel or another system.
+- Multi-user and multi-location setup.
+- Inventory, warehouse, payroll, or manufacturing configuration.
+- Staff training and practical demonstrations.
+- Process reviews and workflow improvement.
+- Go-live support and post-implementation checks.
+
+Being on site helps us identify issues that may not be obvious during a phone call or screen-sharing session. We can see how documents move through the business, where approvals slow down, and where a better process can save time and reduce errors.
+
+We build capability, not dependency
+
+Our goal is not to make your staff dependent on us for every small task. We explain the system clearly, train users according to their responsibilities, and help your team develop confidence.
+
+Training is practical and role-based. An accountant may focus on ledgers, VAT, reconciliations, and reports. A storekeeper may need to understand stock receipts, issues, transfers, and reorder levels. A manager may need dashboards, controls, profitability reports, and approval processes.
+
+By connecting training to the work people actually perform, we help your team use the system correctly and consistently.
+
+Support that grows with your business
+
+A business-management system should change as the business changes. New branches may open, staff responsibilities may shift, product lines may expand, and reporting requirements may become more complex.
+
+We help you adapt by adding users or locations, improving controls, creating custom reports, supporting integrations, strengthening backup procedures, and onboarding new staff. Our relationship continues beyond the initial setup so your systems can keep pace with your plans.
+
+Ready for support that walks with your business?
+
+Book a free TallyPrime assessment with Optimum Prime Solutions. We will learn about your business, recommend the right setup, and explain how our team can support you remotely and on site.
+
+Book a Free TallyPrime Assessment
+
+Prefer WhatsApp? Chat with an Optimum specialist at +254 116 246 074.
+
+You do not have to navigate business technology alone. Talk to Optimum Prime Solutions today and let us walk with your business from where you are now to where you want to go.
+
+> *Optimum Prime Solutions — Cloud Simplified, Business Amplified.*`},
     {id:'1',title:'Why Every Kenyan Business Needs Tally Prime in 2025',excerpt:'Discover how Tally Prime is transforming business operations across Kenya with automated accounting, KRA compliance, and real-time reporting.',date:'2025-01-15',category:'Insights',readTime:'5 min',content:`Tally Prime has become the backbone of business operations across Kenya. Whether you're a small retail shop, a manufacturing facility, or a growing services company, the need for accurate financial management and KRA compliance is non-negotiable.
 
 Why should your business invest in Tally Prime in 2025?
