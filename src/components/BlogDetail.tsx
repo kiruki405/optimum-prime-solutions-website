@@ -135,6 +135,36 @@ export default function BlogDetail({ blogId, onClose }: Props) {
             </div>
           </motion.div>
 
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: embedUrl ? 0.4 : 0.3 }}
+            className="mt-10 rounded-3xl bg-gradient-to-br from-navy-900 to-navy-800 p-7 text-white shadow-xl"
+          >
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-sky-300">Ready to get started?</p>
+            <h2 className="mt-2 text-2xl font-bold">Book a Free TallyPrime Assessment</h2>
+            <p className="mt-3 max-w-2xl text-sm leading-6 text-sky-100">
+              Talk to Optimum Prime Solutions about your business, implementation needs, staff training, and ongoing remote or on-site support.
+            </p>
+            <div className="mt-5 flex flex-wrap items-center gap-4">
+              <a
+                href="/contact"
+                onClick={onClose}
+                className="inline-flex items-center rounded-xl bg-sky-600 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-sky-500/20 transition hover:bg-sky-700"
+              >
+                Book a Free Assessment
+              </a>
+              <a
+                href="https://wa.me/254116246074?text=Hello%20Optimum%2C%20I%20would%20like%20a%20free%20TallyPrime%20assessment."
+                target="_blank"
+                rel="noreferrer"
+                className="text-sm font-semibold text-sky-200 transition hover:text-white"
+              >
+                Chat on WhatsApp
+              </a>
+            </div>
+          </motion.div>
+
           {/* Footer */}
           <motion.div
             initial={{ opacity: 0 }}
